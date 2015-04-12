@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+
+//    //创建作用域
+//    void function($,gloabal){
+//        document.write($);
+//        for(var i = 1; i < 10; i++){
+//            document.write(i);
+//        }
+//    }(jQuery,this);
+//    document.write("<br/>"+typeof i);
+//
+//
+//
+//    function reverse(str) {
+//        var arr = str.split('');
+//        arr.reverse();
+//        return arr.join('')
+//    }
+//
+//
+//    console.log(reverse('abcdefgh'));
+
+//    console.log(a);
+
+
+//    function the2nd (arr) {
+//        arr=arr.slice(0);  //保留原来数组
+//        if(!Array.isArray(arr)) {
+//            console.log('you need an array')
+//            return
+//        }
+//        arr.sort(function(a,b) {
+//            return a-b
+//        })
+//        arr.pop()
+//        return arr.pop()
+//    }
+//
+//    function getSecond(arr){
+//        var max, second;
+//        if(arr.length < 2){
+//            return null;
+//        }else{
+//            max = arr[1]>arr[0]?arr[1]:arr[0];
+//            second = arr[1]<arr[0]?arr[1]:arr[0];
+//        }
+//        for(var i = 2, len = arr.length; i < len; i++){
+//            if(max < arr[i]){
+//                second = max;
+//                max = arr[i];
+//            }
+//            else if(second < arr[i]){
+//                second = arr[i];
+//            }
+//        }
+//        return second;
+//    }
+
+
+//    判断字符串
+//    function isStr(a) {
+//        if (typeof(a) === 'string') {
+//            return true
+//        }
+//        return false
+//    }
+//
+//    function isString (str) {
+//        return typeof str === 'string'
+//    }
+//
+//    document.write(new String("abc") instanceof String);   //包装
+//
+//    function isArray (arr) {
+//        if(Array.isArray) return Array.isArray(arr)
+//        return Object.prototype.toString.call(arr) == '[object Array]'
+//    }
+//
+//    var e = 'abc';
+//    var b = [1, 2, 3];
+//    document.write(isStr(e), ',');
+//    document.write(isStr(b));
+
+
+//    快速排序
+//    function qsort(arr){
+//        if(arr.length <= 1){
+//            return arr;
+//        }
+//        var first = arr[0], rest = arr.slice(1);
+//
+//        return qsort(rest.filter(function(o){
+//            return o < first;
+//        })).concat([first])
+//                .concat(qsort(rest.filter(function(o){
+//                    return o >= first;
+//                })));
+//    }
+//
+//    var arr = [3,4,6,1,2,5];
+//    document.write(qsort(arr));
+//
+//function sortNumber(a, b) {
+//    return a - b
+//}
+//
+//function only(arr) {
+//    for (var i = 0; i < arr.length; i++) {
+//
+//    }
+//}
+//
+//function getEvenOddSum(arr) {
+//    if (arr !== []) {
+//
+//
+//        var even = [], odd = [];
+//        for (var i = 0; i < arr.length; i++) {
+//            if (arr[i] % 2 === 0) {
+//                even.push(arr[i]);
+//            } else {
+//                odd.push(arr[i]);
+//            }
+//        }
+//
+//        even.sort(sortNumber);
+//        odd.sort(sortNumber);
+//        document.write(even, '<br/>', odd, '<br/>')
+//
+//        document.write(even[0], '<br/>', odd[odd.length - 1], '</br>')
+//        return even[0] + odd[odd.length - 1]
+//    }
+//    return 'array is error'
+//}
+//
+//document.write(getEvenOddSum([2, 11, 5, 3, 6, 8, 4]));
+//
+//
+//function shuffle(arr) {
+//    var n = arr.length
+//    for (var i = n - 1; i > 0; i--) {
+//        var j = Math.floor(Math.random() * (i + 1));
+//        var tmp = arr[i];
+//        arr[i] = arr[j];
+//        arr[j] = tmp;
+//    }
+//    return arr
+//}
+//
+//function sum(arr) {
+//    for (var max = -Infinity, min = Infinity, i = 0; i < arry.length; i++) {
+//        if (arr[i] > max && arr[i] % 2 === 1) {
+//            max = arr[i];
+//        }
+//
+//        if (arr[i] < min && arr[i] % 2 === 0) {
+//            min = arry[i];
+//        }
+//    }
+//    if (Number.isFinite(max) && Number.isFinite(min))
+//        return max + min;
+//    else
+//        return null;
+//}
+//
+//var copy = function (array) {
+//    if (array instanceof Array == false) return array;
+//    var result = [];
+//    for (var i = 0; i < array.length; i++) {
+//        result[i] = copy(array[i]);
+//    }
+//    ;
+//
+//    return result;
+//
+//}
+//
+//
+////普通属性
+//var obj = {x: 0, y: 0};
+//
+////getter & setter
+//Object.defineProperty(obj, 'length', {
+//    get: function () {
+//        return Math.sqrt(this.x * this.x + this.y * this.y);
+//    },
+//    set: function (len) {
+//        var arc = Math.PI * this.arc / 180;
+//        this.x = len * Math.cos(arc);
+//        this.y = len * Math.sin(arc);
+//    }
+//});
+//
+//Object.defineProperty(obj, 'arc', {
+//    get: function () {
+//        return Math.atan2(this.y, this.x) * 180 / Math.PI;
+//    },
+//    set: function (arc) {
+//        var len = this.length, arc = Math.PI * arc / 180;
+//        this.x = len * Math.cos(arc);
+//        this.y = len * Math.sin(arc);
+//    }
+//});
+//
+//obj.x = obj.y = 1;
+//
+//document.write(obj.length + "<br>");
+//
+//obj.length = 2;
+//obj.arc = 30;
+//
+//document.write(JSON.stringify(obj));
+//
+////普通属性
+////构造器
+//function Vector2D(x, y) {
+//    this.x = x;
+//    this.y = y;
+//}
+//
+////getter & setter
+//Object.defineProperty(Vector2D.prototype, 'length', {
+//    get: function () {
+//        return Math.sqrt(this.x * this.x + this.y * this.y);
+//    },
+//    set: function (len) {
+//        var arc = Math.PI * this.arc / 180;
+//        this.x = len * Math.cos(arc);
+//        this.y = len * Math.sin(arc);
+//    }
+//});
+//
+//Object.defineProperty(Vector2D.prototype, 'arc', {
+//    get: function () {
+//        return Math.atan2(this.y, this.x) * 180 / Math.PI;
+//    },
+//    set: function (arc) {
+//        var len = this.length, arc = Math.PI * arc / 180;
+//        this.x = len * Math.cos(arc);
+//        this.y = len * Math.sin(arc);
+//    }
+//});
+//
+//var obj = new Vector2D(0, 0);
+//obj.x = obj.y = 1;
+//
+//document.write(obj.length + "<br>");
+//
+//obj.length = 2;
+//obj.arc = 30;
+//
+//document.write(JSON.stringify(obj));
+//
+////普通属性
+//
+//function Vector2D(x, y) {
+//    this.x = x;
+//    this.y = y;
+//}
+//
+////getter & setter
+//Object.defineProperty(Vector2D.prototype, 'length', {
+//    get: function () {
+//        return Math.sqrt(this.x * this.x + this.y * this.y);
+//    },
+//    set: function (len) {
+//        var arc = Math.PI * this.arc / 180;
+//        this.x = len * Math.cos(arc);
+//        this.y = len * Math.sin(arc);
+//    }
+//});
+//
+//Object.defineProperty(Vector2D.prototype, 'arc', {
+//    get: function () {
+//        return Math.atan2(this.y, this.x) * 180 / Math.PI;
+//    },
+//    set: function (arc) {
+//        var len = this.length, arc = Math.PI * arc / 180;
+//        this.x = len * Math.cos(arc);
+//        this.y = len * Math.sin(arc);
+//    }
+//});
+//
+//Vector2D.prototype.add = function (v) {
+//    return new Vector2D(this.x + v.x, this.y + v.y);
+//};
+//
+//var obj = new Vector2D(1, 1);
+//var v = new Vector2D(2, 2);
+//
+//document.write(JSON.stringify(obj.add(v)) + "<br>");
+//
+//document.write(obj.length + "<br>");
+//
+//obj.length = 2;
+//obj.arc = 30;
+//
+//document.write(JSON.stringify(obj));
+//
+//
+//function threeSore(arr) {
+//    var rule = 3;
+//    var d = [];
+//    for (var i = 0; i < arr.length; i++) {
+//        d.push(arr[i] - rule);
+//    }
+//}
+//
+//var arr = [1, 2, 3, 4, 5, 6, 7, 8, 0]
+//
+//arr = arr.sort(function (n1, n2) {
+//    return Math.abs(n1 - 3) - Math.abs(n2 - 3)
+//})
+//
+//console.log(arr)
+//document.write(arr)
+//
+//
+//function add() {
+//    var args = Array.prototype.slice.call(arguments);  //将一个arguments当成真正的数组用
+//    document.write([args instanceof Array, args.slice]);
+//    var sum = 0;
+//    for (var i = 0; i < arguments.length; i++) {
+//        sum += arguments[i];
+//    }
+//    return sum;
+//}
+//
+//document.write(add(1, 2, 3, 4, 5));
+//
+//
+//function Vector2D(x, y) {
+//    this.x = x;
+//    this.y = y;
+//}
+//Vector2D.prototype.length = function () {
+//    console.log('xy->', this.x, this.y, this);
+//    return Math.sqrt(this.x * this.x + this.y * this.y);
+//}
+//
+//var p = new Vector2D(1, 1);
+//console.log(p.length());
+//
+//var a = p.length.bind(p);
+//console.log(a());
+//
+//setTimeout(p.length.bind(p), 500);
+//
+////bind给funtion指定了this， 去掉bind结果不一样
+//
+////reply，call 也可以给funtion指定this
+//function foo(x, y) {
+//    this.x = x;
+//    this.y = y;
+//}
+//
+//var obj = {x: 1, y: 2};
+//foo.call(obj, 3, 4);
+//console.log(obj);
+//foo.apply(obj, [5, 6]);
+//console.log(obj);
+//var binded = foo.bind(obj, 7, 8);
+//binded();
+//console.log(obj);
+//
+////bind是滞后反应的，bind没有输出直
+//
+//
+//if (!Function.prototype.bind) {
+//    Function.prototype.bind = function (thisObj) {
+//        var self = this,
+//                curryingArgs = [].slice.call(arguments, 1);
+//
+//        return function () {
+//            var args = [].slice.call(arguments);
+//            return self.apply(thisObj, curryingArgs.concat(args));
+//        }
+//    }
+//}
+//
+//function add(x, y) {
+//    return x + y;
+//}
+//
+//document.write(add(1, 2));
+//var add5 = add.bind(null, 5);
+//document.write(add5(10));
+
+function removeElem(arr, d) {
+    var newArr=[];
+    console.log(arr);
+    for (var i = 0; i < arr.length; i++) {
+        console.log(arr[i])
+        console.log(arr[i]!= d);
+        for(var j=0;i< d.length;i++){
+            if (arr[i]!= d[j]) {
+                newArr.push(arr[i]);
+            }
+        }
+
+        console.log(newArr)
+    }
+
+    return newArr;
+}
+
+document.write(removeElem([1,2,3,4,5,6],[5,6]))
+
+
+
+var start = Date.now(),
+        dur = 3000;
+var body = document.body;
+
+requestAnimationFrame(function f(){
+    var p = (Date.now() - start) / dur;
+    if(p < 1){
+        var r = 0 | (255 * (1 - p)), g = 0 | (255 * p), b = 0 | (255 * Math.sin(p * Math.PI));
+        body.style.backgroundColor = "rgb(" + [r, g, b] + ")";
+        requestAnimationFrame(f);
+    }else{
+        body.style.backgroundColor = "rgb(0, 255, 0)";
+    }
+});
+
+//funtion消除闭包，其实是创建了10个闭包
+for(var i = 0; i < 10; i++){
+    (function(i){
+        setTimeout(function(){
+            console.log(i);
+        }, 10);
+    })(i)
+}
+</script>
+</body>
+</html>

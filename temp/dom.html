@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body{background:white;}
+        input:checked+span{color:#f00;}
+    </style>
+</head>
+<body>
+<button id="insert">插入</button>
+<button id="delete">删除</button>
+<button id="edit">修改文字</button>
+<input id="text" type="textbox" value="我是一行"/>
+<ul>
+    <li><input type="checkbox"><span>我是一行</span></li>
+    <li><input type="checkbox"><span>我是一行</span></li>
+    <li><input type="checkbox"><span>我是一行</span></li>
+    <li><input type="checkbox"><span>我是一行</span></li>
+    <li><input type="checkbox"><span>我是一行</span></li>
+    <li><input type="checkbox"><span>我是一行</span></li>
+</ul>
+<script>
+    var insertBtn = document.getElementById('insert');
+    var deleteBtn = document.getElementById('delete');
+    var editBtn = document.getElementById('edit');
+    var text = document.getElementById('text');
+
+    var list = document.getElementsByTagName('ul')[0];
+
+    function getAllChecked(){
+        return document.querySelectorAll('input:checked');
+    }
+
+    function insertRow(){
+        var checked = getAllChecked();
+        console.log(checked);
+        if(checked.length <= 0){
+            var li = document.createElement('li');
+            li.innerHTML = '<input type="checkbox"><span>' + text.value + '</span>';
+            list.appendChild(li);
+        }else{
+            for(var i = 0; i < checked.length; i++){
+                checked[i].parentNode.insertAdjacentHTML('beforeBegin', '<li><input type="checkbox"><span>' + text.value + '</span></li>')
+            }
+        }
+    }
+
+    function deleteRow(){
+        var checked = getAllChecked();
+        for(var i = 0; i < checked.length; i++){
+            list.removeChild(checked[i].parentNode);
+        }
+    }
+
+    function editRow(){
+        var checked = getAllChecked();
+        for(var i = 0; i < checked.length; i++){
+            checked[i].parentNode.innerHTML = '<input type="checkbox" checked="checked"><span>' + text.value + '</span>';
+        }
+    }
+
+    insertBtn.addEventListener('click', insertRow);
+    deleteBtn.addEventListener('click', deleteRow);
+    editBtn.addEventListener('click', editRow);
+
+
+
+//   事件代理大码
+    var insertBtn = document.getElementById('insert');
+    var deleteBtn = document.getElementById('delete');
+    var editBtn = document.getElementById('edit');
+    var text = document.getElementById('text');
+
+    var list = document.getElementsByTagName('ul')[0];
+
+    function getAllChecked(){
+        return document.querySelectorAll('input:checked');
+    }
+
+    function insertRow(){
+        var checked = getAllChecked();
+        console.log(checked);
+        if(checked.length <= 0){
+            var li = document.createElement('li');
+            li.innerHTML = '<input type="checkbox"><span>' + text.value + '</span>';
+            list.appendChild(li);
+        }else{
+            for(var i = 0; i < checked.length; i++){
+                checked[i].parentNode.insertAdjacentHTML('beforeBegin', '<li><input type="checkbox"><span>' + text.value + '</span></li>')
+            }
+        }
+    }
+
+    function deleteRow(){
+        var checked = getAllChecked();
+        for(var i = 0; i < checked.length; i++){
+            list.removeChild(checked[i].parentNode);
+        }
+    }
+
+    function editRow(){
+        var checked = getAllChecked();
+        for(var i = 0; i < checked.length; i++){
+            checked[i].parentNode.innerHTML = '<input type="checkbox"><span>' + text.value + '</span>';
+        }
+    }
+
+    insertBtn.addEventListener('click', insertRow);
+    deleteBtn.addEventListener('click', deleteRow);
+    editBtn.addEventListener('click', editRow);
+
+    list.addEventListener('click', function(evt){
+        var target = evt.target; //判断响应元素
+        if(target.tagName.toLowerCase() === 'span'){
+            alert(target.innerHTML);
+        }
+    });
+</script>
+</body>
+</html>

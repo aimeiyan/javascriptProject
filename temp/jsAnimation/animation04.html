@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #ball{
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background-color: #512503;
+        }
+    </style>
+</head>
+<body>
+<div id="ball"></div>
+<script>
+    var ball = document.getElementById('ball'),
+            origin_pos = [80, 80],
+            r = 45,
+            rad = 0,
+            start = Date.now(),
+            dur = 2000,
+            now = 0,
+            past = 0;
+
+    requestAnimationFrame(function f(){
+        now = Date.now();
+        past = (now - start) % dur;
+        rad = (past / dur) * 2 * Math.PI;
+        ball.style.left = r * Math.cos(rad) + origin_pos[0] + 'px';
+        ball.style.top = r * Math.sin(rad) + origin_pos[1] + 'px';
+        console.log(ball.style.left);
+        requestAnimationFrame(f);
+    });
+
+
+
+
+
+
+</script>
+</body>
+</html>
