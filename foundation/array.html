@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+
+    // Create a function find(arr,value) which finds a value in given array and returns its index, or -1 if not found.
+    function findIdx(arr, ele) {
+        for (var i = 0; i < arr.length; i++) {
+            if (ele === arr[i]) {
+                return i
+            }
+        }
+        return -1
+    }
+
+    //    Array#indexOf in the newer ES5 standard,上面的函数可以更改如下：
+    function findIndex(arr, ele) {
+        if (arr.indexOf) return arr.indexOf(ele);
+        for (var i = 0; i < arr.length; i++) {
+            if (arr[i] === ele) return i
+        }
+        return -1
+    }
+
+    //    Create a function filterNumeric(arr) which takes an array and returns new array which contains only numeric values from arr.
+    function filterNumeric(arr) {
+        var newArr = [];
+        for (var i = 0; i < arr.length; i++) {
+            if (parseInt(arr[i]) === arr[i] || parseFloat(arr[i]) === arr[i]) {
+                newArr.push(arr[i]);
+            }
+        }
+        return newArr
+    }
+
+    arr = ["test", 2, 1.5, false];
+    //    document.write(findIdx(arr,1.5),'<br>');
+    //    document.write(findIndex(arr,1.5),'<br>');
+    document.write(filterNumeric(arr));
+
+    //    An object has a className property which keeps it’s class names delimited by spaces:
+    //    var obj = {
+    //        className: 'open menu'
+    //    }
+    //    Write a function addClass(obj, cls) which adds a class cls, but only if it doesn’t yet exist:
+    //    addClass(obj, 'new') // obj.className='open menu new'
+    //    addClass(obj, 'open')  // no changes (class already exists)
+    //    addClass(obj, 'me') // obj.className='open menu new me'
+    //    alert(obj.className)  // "open menu new me"
+    //    P.S. Your function shouldn’t add extra spaces.
+
+    function addClass(obj, cls) {
+        var c = obj.className.split('');
+        for (var i = 0; i < c.length; i++) {
+            if (c[i] === cls) return
+        }
+        obj.className += ' ' + cls;
+        return obj.className
+    }
+
+    var obj = {className: 'open menu'};
+    document.write('<br>', addClass(obj, 'new'));
+
+    //    Create a function camelize(str) which transforms a string from “my-short-string” to “myShortString”.
+    function camelize(str) {
+        var arr = str.split('-');
+        for (var i = 0; i < arr.length; i++) {
+            arr[i] = arr[i].charAt(0).toUpperCase() + arr[i].substr(1);
+        }
+        return arr.join('')
+    }
+
+    document.write('<br>', camelize("my-short-string"));
+
+
+    //    An object has a className property which keeps it’s class names delimited by spaces:
+    //            var obj = {
+    //                className: 'open menu'
+    //            }
+    //    Write a function removeClass(obj, cls) which removes a class cls if it is set:
+    //    removeClass(obj, 'open') // obj.className='menu'
+    //    removeClass(obj, 'blabla')  // no changes (no class to remove)
+
+    function removeClass(obj, cls) {
+        var arr = obj.className.split(' ');
+        for (var i = 0; i < arr.length; i++) {
+            if (arr[i] === cls) {
+                arr.splice(i, 1)
+            }
+        }
+        return arr.join(' ')
+    }
+
+    var d = {className: 'open a new menu'};
+    document.write('<br>', removeClass(d, 'open'))
+
+    //    Create a function ageSort(people) to sort array of people objects by their age.
+    //    var john = { name: "John Smith", age: 23 }
+    //    var mary = { name: "Mary Key", age: 18 }
+    //    var bob = { name: "Bob-small", age: 6 }
+    //    var people = [ john, mary, bob ]
+    //    ageSort(people) // now people is [ bob, mary, john ]
+    //    Output people names after sorting.
+
+    
+</script>
+</body>
+</html>
