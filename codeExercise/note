@@ -1,0 +1,25 @@
+1、下面程序输出是100，为什么不是a函数，是因为a函数中并没有定义a或者对a变量进行修改，即使定义a或者对a进行修改，那也只是在a函数内部，而输出是在函数外部？
+
+ /**
+     * 变量、函数、作用域
+     * @type {number}
+     */
+
+    var a = 100;
+    function a() {
+        console.log(i, '---');
+        for (var i = 0; i < 10; i++) {
+            console.log(i, '+++++')
+        }
+
+    }
+
+    console.log(a, '#######');
+
+2、为什么是下面的规则 ？
+
+function compare(a, b) {
+  if (a > b) return 1
+  else if (a < b) return -1
+  else return 0
+}

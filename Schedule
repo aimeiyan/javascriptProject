@@ -23,10 +23,4 @@ http://code.w3ctech.com/
 
 
 
-problem:
-为什么是下面的规则 ？
-function compare(a, b) {
-  if (a > b) return 1
-  else if (a < b) return -1
-  else return 0
-}
+

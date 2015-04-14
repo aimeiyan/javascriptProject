@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>月影1-2</title>
+</head>
+<body>
+
+<script type="text/javascript">
+    /**
+     * 变量、函数、作用域
+     * @type {number}
+     */
+
+    var a = 100;
+    function a() {
+        console.log(i, '---');
+        for (var i = 0; i < 10; i++) {
+            console.log(i, '+++++')
+        }
+
+    }
+
+    console.log(a, '#######');
+
+    /**
+     * JS允许重命名，后定义的会覆盖先定义的，函数声明提前，输出之后
+     * 避免重命名，会造成很严重的后果
+     * @returns {number}
+     */
+
+    function b() {
+        return 11
+    }
+
+    console.log(b());
+
+    function b() {
+        return 10
+    }
+
+    console.log(b());
+
+
+    /*--------------------------the error code--------------------------*/
+    /**
+     * 用语言特性来防止重名
+     * @type {global|*}
+     */
+    //    var global = typeof global != 'undefined' ? global : window;
+    //    var object={};
+    //
+    //    object.defineProperty(global, 'a', {
+    //        value: function () {
+    //            return 11;
+    //        },
+    //        writable: false
+    //    });
+    //
+    //    console.log(a());
+    //
+    //    var a = function () {
+    //        return 10;
+    //    };
+    //
+    //    console.log(a)
+
+
+    /**
+     * 作用域内的变量
+     */
+    function c() {
+        var i = 10;
+        console.log(typeof i, 'typeof i，函数内的值');
+    }
+
+    c();
+    console.log(typeof i, 'typeof i，函数外的值');  //不能调用c()函数内的i值
+
+    /**
+     * 创造作用域
+     */
+
+    (function () {
+        var i = 10;
+        console.log(typeof i)
+    })();
+
+    console.log(typeof i);
+
+
+    /*--------------------------the error code--------------------------*/
+
+    /**
+     * 传入global。
+     */
+
+    //    (function (global) {
+    //        var i = 10;
+    //        console.log(typeof i);
+    //        global.i = i * 2;
+    //    })(this);
+    //
+    //    console.log(typeof i)
+
+
+    for (var i = 1; i < 10; i++) {
+        console.log(i);
+    }
+
+
+    /*--------------------------- 这段代码是怎么运行的，this 的输出是整个window，为什么？------------------------*/
+
+    void function (jquery, globle) {
+        for (var i = 1; i < 10; i++) {
+            console.log(i);
+        }
+        console.log(this);
+    }(jquery, this);
+
+    var jquery = 'aaaa';
+
+
+    /* -------------------------------------这段代码的目的是什么,每一步是怎么运行的？--------------------------------- */
+
+    var cc = cc || {};
+
+    (function (ns, global) {
+        var p = 100;
+
+        function Myclass() {
+            this.q = 200;
+            console.log(this, "Myclass-----");
+        }
+
+        ns.MyClass = Myclass;
+
+    })(cc, this);
+
+    var obj = new cc.MyClass();
+
+    console.log(obj, 'obj ------');
+    console.log(obj.p, obj.q);
+    console.log(cc, '---');
+
+    
+    /*------立即执行的匿名函数------*/
+    /*
+     (function(){
+     "use strict";
+     //some code here
+     })
+     */
+
+    (function (global) {
+        'use strict'; //进入"严格模式"的标志，版本的浏览器会把它当作一行普通字符串，加以忽略，参考：http://www.ruanyifeng.com/blog/2013/01/javascript_strict_mode.html。
+        var obj = {x: 10, y: 11};
+        for (i in obj) {
+            console.log(i, obj[i], '++++++');
+            obj[i] *= 2;
+        }
+        console.log(obj.x, obj.y)
+    })(this)
+
+
+</script>
+</body>
+</html>
