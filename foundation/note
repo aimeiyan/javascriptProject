@@ -1,1 +1,10 @@
 1、函数：http://javascript.info/tutorial/functions-declarations-and-expressions
+   array:
+
+2、运行结果，为什么？
+
+setTimeout(function factorial(n) {
+    return n == 1 ? n : n*factorial(n-1)
+  }, 100)
+
+3、A function is an action. So it’s name should be a verb, like get, read, calculateSum, etc.
