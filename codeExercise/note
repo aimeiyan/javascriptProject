@@ -63,4 +63,7 @@ Object.toString()               定义一个对象的字符串表示
 --------------------------------------------------------------
 Object.valueOf()                指定对象的原始值
 
-
+7、prototype
+http://www.jb51.net/article/23052.htm
+http://www.cnblogs.com/yjf512/archive/2011/06/03/2071914.html
+http://www.jb51.net/article/24577.htm

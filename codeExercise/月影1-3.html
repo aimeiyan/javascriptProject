@@ -28,6 +28,11 @@
     //    new String("abc") instanceof String
 
 
+    /**
+     * 判断变量是否是数组
+     * @param obj
+     * @returns {*}
+     */
     function isArray(obj) {
         if (Array.isArray) return Array.isArray(obj);
         return Object.prototype.toString().call(arr)=='[object Array]';
