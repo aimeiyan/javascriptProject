@@ -9,7 +9,17 @@
 
     //    http://javascript.info/tutorial/number-math
 
-    
+    function isNumeric(n) {
+        return !isNaN(parseFloat(n)) && isFinite(n)
+    }
+
+    console.log(isNumeric('\n'));
+    console.log(isNumeric('5'));
+    console.log(isNumeric(5));
+
+
+
+
 
 </script>
 </body>

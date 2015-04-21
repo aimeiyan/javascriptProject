@@ -27,14 +27,40 @@ function compare(a, b) {
 3、严格模式：
 http://www.ruanyifeng.com/blog/2013/01/javascript_strict_mode.html
 
-4、下面的授权是什么意思？
-1个开发者 	1万	1个开发者授权、3个银牌服务
-3个开发者 	3万	3个开发者授权、3个银牌服务
+4、typeof and instanceof
+(1) typeof 是一个一元运算，放在一个运算数之前，运算数可以是任意类型。它返回值是一个字符串，该字符串说明运算数的类型。typeof 一般只能返回如下几个结果：
+number,boolean,string,function,object,undefined。
+
+    可以使用 typeof 来获取一个变量是否存在，如 if(typeof a!="undefined"){alert("ok")}，而不要去使用 if(a) 因为如果 a 不存在（未声明）则会出错，
+对于 Array,Null 等特殊对象使用 typeof 一律返回 object，这正是 typeof 的局限性。
+
+(2) instanceof
+instanceof 用于判断一个变量是否某个对象的实例
+a instanceof b ? alert("true"):alert("false"); //a是b的实例？真:假
+
+测试 var a=new Array();if (a instanceof Object) alert('Y');else alert('N');
+    var a=new Array();alert(a instanceof Array);
+
+5、isArray() 兼容性
+在以下文档模式中受支持：Internet Explorer 9 标准模式、Internet Explorer 10 标准模式和 Internet Explorer 11 标准模式。此外，也在应用商店应用（Windows 8 和 Windows Phone 8.1）中受支持。
+在以下文档模式中不受支持：Quirks、Internet Explorer 6 标准模式、Internet Explorer 7 标准模式、Internet Explorer 8 标准模式。
+
+6、JS 中 object.constructor的认识：
+
+Object                          含有所有js对象的特性的超类
+--------------------------------------------------------------
+Object.constructor              对象的构造函数
+--------------------------------------------------------------
+Object.hasOwnProperty()         检查属性是否被继承
+--------------------------------------------------------------
+Object.isPrototypeOf()          一个对象是否是另一个对象的原型
+--------------------------------------------------------------
+Object.propertyIsEnumerable()   是否可以通过for/in循环看到属性
+--------------------------------------------------------------
+Object.toLocaleString()         返回对象的本地字符串表示
+--------------------------------------------------------------
+Object.toString()               定义一个对象的字符串表示
+--------------------------------------------------------------
+Object.valueOf()                指定对象的原始值
 
 
-开发者授权解释：
-每个使用该控件的开发者需要购买一个授权码License Key，授权码与被授权邮箱绑定。
-此授权方式只对开发者数量限制，对发布的产品没有限制。
-需要在miniui.js顶部注释放置授权码，声明项目的合法性。
-可以使用邮箱帐号和授权码登录产品下载页面，下载升级版本、源代码。
-可提供17%的增值税发票。

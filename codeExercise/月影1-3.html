@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>月影1-3</title>
+</head>
+<body>
+
+<script type="text/javascript">
+
+    /**
+     * 判断是否为字符串
+     * @param obj
+     * @returns {boolean}
+     */
+
+    function isStr(obj) {
+        return typeof obj === 'string' ? true : false
+    }
+
+    console.log(isStr('adgc'));
+    console.log(isStr(5));
+    console.log(isStr('NaN'));
+    console.log(isStr(NaN));
+    console.log(isStr(undefined));
+
+    /* -----------------------下面的代码不能判断一个变量是否是字符串----------------------- */
+    //    new String("abc") instanceof String
+
+
+    function isArray(obj) {
+        if (Array.isArray) return Array.isArray(obj);
+        return Object.prototype.toString().call(arr)=='[object Array]';
+    }
+
+
+</script>
+</body>
+</html>

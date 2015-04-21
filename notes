@@ -1,0 +1,25 @@
+1、压缩代码能节省一部分带宽，压缩工具本身带有逻辑优化；js和图片不完全一样，<script>标签中js下载一般是阻塞操作的，压缩了减少响应时间；合并是为了减少http请求，这个很重要；
+便于版本更新，上线后不让别人看懂代码；
+
+2、http://www.it28.com/wangyezhizuo/html5/2014-08-02/103156.html
+localStorage.setItem("a.js","a.js的文件内容");
+localStorage.setItem("b.js","b.js的文件内容");
+localStorage.setItem("c.js","c.js的文件内容");
+
+这样玩虽然有5M的限制, 就不用阻塞了
+很多移动端网页有这么缓存js的策略
+
+3、最新的电子书提供下载网址：
+http://www.salttiger.com/
+
+4、月影js视频地址
+http://i.youku.com/u/UMzAzMTEzNTUyOA==
+
+5、《PPK谈JavaScript》
+
+6、移动Web手册（双色）
+http://quirksmode.org/mobilewebhandbook/chapter1.html
+http://quirksmode.org/
+
+7、http://fis.baidu.com/index.html
+FIS是专为解决前端开发中自动化工具、性能优化、模块化框架、开发规范、代码部署、开发流程等问题的工具框架。
