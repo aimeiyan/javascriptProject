@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>prototype</title>
+</head>
+<body>
+<p><a href="http://www.cnblogs.com/qiantuwuliang/archive/2011/01/08/1930548.html">http://www.cnblogs.com/qiantuwuliang/archive/2011/01/08/1930548.html</a></p>
+<div>
+    <img src="images/prototype001.jpg">
+</div>
+<hr>
+<div>
+    <img src="images/prototype002.jpg">
+</div>
+<hr>
+<div>
+    <img src="images/prototype003.jpg">
+    <p>注意：红色的方框就是把子类与父类链接起来的地方。这个就应该是传说中的prototype链了吧。</p>
+</div>
+<script>
+    //   这个博文好好研读一下： http://www.cnblogs.com/qiantuwuliang/archive/2011/01/08/1930548.html
+    //    http://www.jb51.net/article/23052.htm
+    //    http://www.cnblogs.com/yjf512/archive/2011/06/03/2071914.html
+    //    http://www.jb51.net/article/24577.htm
+
+
+    //    function定义的这个Person就是一个Object(对象),而且还是一个很特殊的对象，这个使用function定义的对象与使用new操作符生成的对象之间有一个重要的区别。
+    //    这个区别就是function定义的对象有一个prototype属性，使用new生成的对象就没有这个prototype属性。
+
+    //    prototype属性又指向了一个prototype对象，注意prototype属性与prototype对象是两个不同的东西，要注意区别。在prototype对象中又有一个constructor属性，
+    //    这个constructor属性同样指向一个constructor对象，而这个constructor对象恰恰就是这个function函数本身。
+
+    function Person(name) {
+        this.name = name;
+        this.showMe = function () {
+            console.log(this.name);
+        }
+    }
+
+    Person.prototype.from = function () {
+        console.log('I come from prototype.');
+    };
+
+    function SubPerson() {
+    }
+
+    SubPerson.prototype = new Person();
+
+    var one = new Person('JavaScript');   //相当于 var one={};    Person.call(one,'js');
+    var subOne = new SubPerson();
+    subOne.from();
+    console.log(subOne.constructor);
+    console.log(SubPerson.prototype.constructor);
+
+
+    //    按照《悟透javascript》书中说的，new形式创建对象的过程实际上可以分为三步：
+    //    第一步是建立一个新对象（叫A吧）；
+    //    第二步将该对象（A）内置的原型对象设置为构造函数(就是Person)prototype 属性引用的那个原型对象；
+    //    第三步就是将该对象（A）作为this 参数调用构造函数(就是Person)，完成成员设置等初始化工作。
+    //    其中第二步中出现了一个新名词就是内置的原型对象，注意这个新名词跟prototype对象不是一回事，为了区别我叫它inobj,inobj就指向了函数Person的prototype对象。
+    //    在person的prototype对象中出现的任何属性或者函数都可以在one对象中直接使用，这个就是javascript中的原型继承了。
+    //    这样one对象通过内置的原型对象inobj就可以直接访问Person的prototype对象中的任何属性与方法了。这也就解释了上面的代码中为什么one可以访问form函数了。因为prototype对象中有一个constructor属性，那么one也可以直接访问constructor属性。
+    //    只需要把子类的prototype设置为父类的一个（实例化）对象即可
+
+
+    one.showMe();
+    one.from();
+    console.log(one.constructor);
+    console.log(Person.prototype.constructor);
+
+    console.log('one.prototype ------ ', one.prototype);
+    console.log('typeof Person.prototype ------ ', typeof Person.prototype);
+    console.log('Person.prototype.constructor ------ ', Person.prototype.constructor);
+
+
+</script>
+</body>
+</html>

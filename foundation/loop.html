@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>循环</title>
+</head>
+<body>
+<script>
+    //    while循环和for循环相比，尽量使用for循环，原因是for循环更加直观看出循环在什么时候停止；
+    //    while do 和 do while 相比，用while do；
+
+    //    for...in
+
+    //    for...in遍历Map
+    var map = {
+        a: 1,
+        b: 2,
+        c: "three",
+        d: []
+    };
+
+    for (var i in map) {
+        console.log(i, map[i], ' ------- map');
+    }
+
+    //    for...in遍历稀疏数组
+    //    不建议数组使用for...indentEdgeReset，最好用for
+
+    var arr = new Array(10);
+    arr[2] = 1;
+    arr[8] = 2;
+    for (var i in arr) {
+        console.log(i, arr[i], ' ------- arr');
+    }
+
+</script>
+</body>
+</html>

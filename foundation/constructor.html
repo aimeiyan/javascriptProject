@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script>
+    //object.constructor
+    //描述：对象的constructor属性引用了该对象的构造函数。例如：如果用Array()构造函数创建一个数组，那么a.constructor引用的就是Array：
+    a = new Array(1, 2, 3);     //创建一个对象
+    console.log(a.constructor == Array);     //计算结果为true
+
+    //    constructor 属性常用于判断位置对象的类型。给定一个未知的值，就可以用typeof运算符来判断它是原始的值还是对象。如果constructor属性来
+    //    判断对象的类型。例如，下面的函数用来判断一个给定的值是否是数组：
+
+    function isArray(x) {
+        return ((typeof x == "object") && (x.constructor == Array))
+    }
+
+    console.log(isArray([1,2,3,4]));
+
+    //    但是要注意，虽然这种方法适用于JavaScript核心语言的内部对象，但对于“主对象”，如window这样的客户端JavaScript对象，这种方法就不一定使用了。
+    //    Object.toString()方法的默认实现提供了另一种判断未知对象类型的方法。
+
+</script>
+
+</body>
+</html>

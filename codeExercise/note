@@ -67,3 +67,11 @@ Object.valueOf()                指定对象的原始值
 http://www.jb51.net/article/23052.htm
 http://www.cnblogs.com/yjf512/archive/2011/06/03/2071914.html
 http://www.jb51.net/article/24577.htm
+
+
+prototype只是函数的一个属性，该属性的类型是一个对象。Javascript中的继承一般都依赖这属性实现。
+在Javascript中，一切都是对象，字符串是对象，数组是对象，变量是对象，函数也是对象，所以才会允许['a','b','c'].push('d');这样的操作存在。类本身也是一个对象，也可以定义属性和方法;
+prototype就是一个作用于类的属性。默认情况下，所有Javascript类都会有一个prototype属性，但是类实例没有。
+在Javascript中，当我们取一个对象中并不存在的属性或是方法时，它会试图查看该对象所对应的类中的prototype属性中是否包含该属性或是方法，而prototype也是一个Javascript对象，若是其中也没有，
+该prototype又会访问它对应的类的prototype，如此一级级地向上访问，直到找到需要的属性或方法，或是prototype属性为null。
+
