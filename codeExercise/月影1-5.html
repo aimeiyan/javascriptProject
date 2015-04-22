@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>月影1-5</title>
+</head>
+<body>
+<script>
+    /**
+     * 比较函数
+     * @param a
+     * @param b
+     * @returns {number}
+     */
+
+    function compare(a, b) {
+        if (a > b) return 1;
+        else if (a < b) return -1;
+        else return 0
+    }
+
+
+    /**
+     * 找出整数数组中最大奇数和最小偶数的和，如果没有最大奇数或没有最小偶数，返回null
+     * @param arr
+     * @returns {*}
+     */
+    function getMaxOddMinEvenSum(arr) {
+        if (arr.length) {
+            var odd = [], even = [];
+            for (var i = 0; i < arr.length; i++) {
+                if (arr[i] % 2 === 0) {
+                    even.push(arr[i]);
+                } else {
+                    odd.push(arr[i]);
+                }
+            }
+
+            if (odd.length !== 0 && even.length !== 0) {
+                return odd.sort(compare)[odd.length - 1] + even.sort(compare)[0]
+            }
+
+            return null
+        }
+        return 'array is error'
+    }
+
+    var arr = [1, 2, 3, 4, 5, 6, 7];
+    var c = [1, 3, 5, 7, 9, 11];
+    var d = [];
+    console.log(getMaxOddMinEvenSum(arr));
+    console.log(getMaxOddMinEvenSum(c));
+    console.log(getMaxOddMinEvenSum(d));
+
+    /**
+     * 将一个有序数组完全随机打乱顺序
+     * @param arr
+     * @returns {*}
+     */
+    function shuffle(arr) {
+        for (var i = 0; i < arr.length; i++) {
+            var j = Math.floor(Math.random() * (i + 1));
+            var temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+        }
+
+        return arr
+    }
+
+    console.log(shuffle(arr), 'shuffle');
+
+    /**
+     * 深度拷贝 针对给定的数组，返回它的拷贝
+     * @param array
+     * @returns {*}
+     */
+    var copy = function (array) {
+        if (array instanceof Array == false)
+            return array;
+        var result = [];
+        for (var i = 0; i < array.length; i++) {
+            result[i] = copy(array[i]);
+        }
+
+        return result;
+
+    };
+    var arr1 = [1, 2, 3, 4, [5, 6]];
+    copy(arr1);
+
+
+    /**
+     * 找出一个数组中任意两个数为10的所有结果
+     * @param arr
+     * @returns {Array}
+     */
+    function sumTen(arr) {
+        var newElem = [];
+        for (var i = arr.length - 1; i >= 0; i--) {
+            for (var j = 0; j < i; j++) {
+                if (arr[i] + arr[j] === 10) {
+                    newElem.push(arr[j] + ',' + arr[i])
+                }
+            }
+        }
+        return newElem
+    }
+    var arr2 = [1, 2, 3, 4, 5, 6, 7];
+    console.log(sumTen(arr2), 'sumTen')
+
+</script>
+</body>
+</html>
