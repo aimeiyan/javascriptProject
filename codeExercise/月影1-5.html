@@ -71,24 +71,40 @@
     console.log(shuffle(arr), 'shuffle');
 
     /**
-     * 深度拷贝 针对给定的数组，返回它的拷贝
+     * 深度拷贝：针对给定的数组，返回它的拷贝
      * @param array
      * @returns {*}
      */
-    var copy = function (array) {
-        if (array instanceof Array == false)
+
+//    var copy = function (array) {
+//        if (array instanceof Array == false)
+//            return array;
+//        var result = [];
+//        for (var i = 0; i < array.length; i++) {
+//            result[i] = copy(array[i]);
+//        }
+//
+//        return result;
+//
+//    };
+
+
+    function copy(array) {
+        if (array instanceof Array === false)
             return array;
         var result = [];
         for (var i = 0; i < array.length; i++) {
             result[i] = copy(array[i]);
         }
 
-        return result;
+        result[2] = "test";
+        console.log(result, '-----', array);   //改变result的元素，不会影响array的值。
+        return result
+    }
 
-    };
     var arr1 = [1, 2, 3, 4, [5, 6]];
     copy(arr1);
-
+    console.log(copy(arr1), 'deep copy');
 
     /**
      * 找出一个数组中任意两个数为10的所有结果

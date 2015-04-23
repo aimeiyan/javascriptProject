@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>typeof and instanceof</title>
+</head>
+<body>
+<script>
+    //    Js 中typeof 和 instanceof 常用来判断一个变量是否唯空，或者是什么类型。他们之间的区别：
+
+    //    typeof :
+
+    //    typeof 是一个一元运算，放在运算数之前，运算数可以是任意类型。typeof返回的结果有：number、boolean、string、function、object、undefined。
+    //    可以使用typeof来获取一个变量是否存在，如：
+    //    if(typeof a!="undefined"){alert('ok')},而不要去使用if(a)因为如果a不存在（未声明）则会出错，对于Array，Null等特殊对象使用typeof一律返回object，这正是typeof的局限性。
+    //    for example:
+    //    typeof(1)       // "number"
+    //    typeof(NaN)      //"number"
+    //    typeof(Number.MIN_VALUE)    //"number"
+    //    typeof(Infinity)    //"number"
+    //    typeof("123")   //"string"
+    //    typeof(true)    //"boolean"
+    //    typeof(window)  //"object"
+    //    typeof(new Array())     //"object"
+    //    typeof(function(){})    //"function"
+    //    typeof(document)    //"object"
+    //    typeof(null)    //"object"
+    //    typeof(eval)    //"function"
+    //    typeof(Date)    //"function"
+    //    typeof(sss)     //"undefined"
+    //    typeof(undefined)   //"undefined"
+
+
+    //    instanceof
+    //    a instanceof b ? alert("true") : alert("false");      //a是b的实例？真：假
+    //    instanceof用于判断一个变量是否为某个对象的实利，如 var a=new Array();alert(a instanceof Array);会返回true,同时alert(a instanceof Object) 也会返回true，因为Array是Object的子类；
+    //    function test(){};var a=new test();alert(a instanceof test)  返回true
+
+    //    另外：
+    //    测试 var a=new Array();if (a instanceof Object) alert('Y');else alert('N'); 得'Y’
+    //    但 if (window instanceof Object) alert('Y');else alert('N'); 得'N'
+    //    所以，这里的 instanceof 测试的 object 是指 js 语法中的 object，不是指 dom 模型对象。
+    //    使用 typeof 会有些区别 alert(typeof(window)) 会得 object
+
+
+
+</script>
+</body>
+</html>

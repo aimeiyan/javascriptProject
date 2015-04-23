@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>DOM and BOM</title>
+</head>
+<body>
+<h1 id="subject" name="subject-name">DOM and BOM 介绍</h1>
+
+<p id="first-title">Document Object Model 文档对象模型 </p>
+
+<p>一个Window对象有一个document属性引用了Document对象,Document对象表示窗口内容，他是一个巨大的API中的核心对象，他代表操作文档的内容</p>
+<script type="text/javascript">
+    var h = document.getElementById('subject');
+    var p = document.getElementById('p');
+    var strong = document.getElementById('strong');
+    var s = '';
+    var t = document.getElementsByName('subject-name');
+    var g=document.getElementsByTagName('p');
+</script>
+</body>
+</html>
