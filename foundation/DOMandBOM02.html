@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>DOM and BOM--Shopping list</title>
+    <style>
+        body {
+            color: white;
+            background-color: black;
+        }
+
+        p {
+            color: #ff4f4c;
+            font-family: arial, sans-serif;
+            font-size: 1.2em;
+        }
+
+        #purchase {
+            border: 1px solid white;
+            background-color: #333;
+            color: #ccc;
+            padding: 1em 1em 1em 2em;
+        }
+    </style>
+</head>
+<body>
+
+<h1>what to buy?</h1>
+
+<p>Don't forget to buy this suff.</p>
+
+<p title="a new gentle reminder">Don't forget to buy this suff.</p>
+
+<p title="a gentle reminder">Don't forget to buy this suff.</p>
+<ul id="purchase">
+    <li>A tin of beans</li>
+    <li class="sale">Cheese</li>
+    <li class="sale important">Milk</li>
+</ul>
+<script>
+    console.log(document.getElementById('purchase'));
+    console.log(typeof document.getElementById('purchase'));
+
+    console.log(document.getElementsByTagName('li'), document.getElementsByTagName('li').length);
+    var items = document.getElementsByTagName('li');
+    for (var i = 0; i < items.length; i++) {
+        console.log(items[i], typeof items[i]);
+    }
+
+
+    //    通配符“*”
+    console.log(document.getElementsByTagName("*"));    //返回包含文档中所有节点元素的数组
+
+    //    组合使用document.getElementById()和getElementsByTagName()
+    var shopping = document.getElementById('purchase');
+    var lis = shopping.getElementsByTagName('*');
+    console.log(shopping, 'shopping');
+    console.log(lis, 'lis');
+
+
+    console.log(document.getElementsByClassName('sale', '1个类名'));
+    console.log(document.getElementsByClassName('sale important', '多个类名'));
+
+    console.log(document.getElementById('purchase').getElementsByClassName('sale'), '组合使用document.getElementById()和getElementsByClassName()')
+
+
+    //    getElementsByClassName() 兼容IE9+；
+    //    兼容老浏览器的方法：
+
+    function getElementsByClassName(node, className) {
+        if (node.getElementsByClassName()) {
+            //使用现有方法
+            return node.getElementsByClassName(className);
+        } else {
+            var result = new Array();
+            var elems = node.getElementsByTagName("*");
+            for (var i = 0; i < elems.length; i++) {
+                if (elems[i].className.indexOf(className) != -1) {
+                    result[result.length] = elems[i];
+                }
+            }
+            return result
+        }
+
+    }
+
+
+    var paras = document.getElementsByTagName('p');
+    for (var i = 0; i < paras.length; i++) {
+        console.log(paras[i].getAttribute('title'));
+        var title_test = paras[i].getAttribute('title');
+        if (title_test) {
+            console.log(paras[i].getAttribute('title'));
+            paras[i].setAttribute('title','brand haha new title text');
+        } 
+    }
+
+</script>
+</body>
+</html>

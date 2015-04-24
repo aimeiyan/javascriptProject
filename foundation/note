@@ -8,3 +8,6 @@ setTimeout(function factorial(n) {
   }, 100)
 
 3、A function is an action. So it’s name should be a verb, like get, read, calculateSum, etc.
+
+4、getElementsByClassName() 兼容IE9+；
+兼容老浏览器的方法：
