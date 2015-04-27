@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>图片库</title>
+    <style>
+        body {
+            background-color: #ccc;
+        }
+
+        li {
+            float: left;
+            padding: 1em;
+            list-style: none;
+        }
+
+        a {
+            color: #c60;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        img {
+            display: block;
+            clear: both;
+        }
+        h1{
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+<div class="points">
+    <h1>重要DOM属性</h1>
+    <ul>
+        <li>childNodes</li>
+        <li>nodeType</li>
+        <li>nodeValue</li>
+        <li>firstChild</li>
+        <li>lastChild</li>
+    </ul>
+
+</div>
+<h1>Snapshots</h1>
+<ul>
+    <li>
+        <a href="images/images/fireworks.jpg" title="A firework display"
+           onclick="showPic(this);return false;">Firework</a>
+    </li>
+    <li>
+        <a href="images/images/coffee.jpg" title="A cup of black coffee"
+           onclick="showPic(this);return false;">Coffee</a>
+    </li>
+    <li>
+        <a href="images/images/rose.jpg" title="A red,red rose" onclick="showPic(this);return false;">Rose</a>
+    </li>
+    <li>
+        <a href="images/images/bigben.jpg" title="A famous clock" onclick="showPic(this);return false;">Big Ben</a>
+    </li>
+</ul>
+<img src="images/images/placeholder.gif" id="placeholder" alt="my image gallery">
+
+<p id="description">Choose an images</p>
+<script>
+    function showPic(whichpic) {
+        var source = whichpic.getAttribute('href');
+        var text = whichpic.getAttribute('title');
+        document.getElementById('placeholder').setAttribute('src', source);
+//        document.getElementById('description').childNodes[0].nodeValue=text;
+        document.getElementById('description').firstChild.nodeValue = text;   //相较于上一句容易阅读和理解
+    }
+
+
+    function countBodyChildren() {
+        var body_element = document.getElementsByTagName('body')[0];
+        console.log(body_element.childNodes.length);
+    }
+
+    window.onload = countBodyChildren();
+
+</script>
+</body>
+</html>

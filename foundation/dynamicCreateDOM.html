@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>动态创建标记</title>
+</head>
+<body>
+<div id="testdiv">
+    <p>This is <em>my</em> content.</p>
+</div>
+<div id="test2">
+
+</div>
+<div id="createElem-wrapper">
+
+</div>
+<div id="create-txt-node"></div>
+<script>
+
+    /*----------document.write();---------*/
+
+    //    document.write('<p>this is inserted</p>')
+    function insertParagraph(text) {
+        var str = "<p>";
+        str += text;
+        str += "</p>";
+        document.write(str);
+    }
+    insertParagraph('this is inserted');
+
+
+    window.onload = function () {
+
+        /* ------------innerHTML------------- */
+        var testdiv1 = document.getElementById('testdiv');
+        console.log(testdiv1.innerHTML);
+
+        var testdiv2 = document.getElementById('test2');
+        testdiv2.innerHTML = "<p>This id <em>my</em> content.</p>";
+
+        /*-------createElement and appendChild-----------------*/
+        var para = document.createElement('p');
+        var info = 'nodeName:';
+        info += para.nodeName;
+        info += " nodeType:";
+        info += para.nodeType;
+        console.log(info);
+        para.innerHTML = 'appendChild';
+        document.getElementById('createElem-wrapper').appendChild(para);
+
+        /*------------------createTextNode--------------------*/
+        var txtpara = document.createElement('p');
+        document.getElementById('create-txt-node').appendChild(txtpara);
+        var txt = document.createTextNode('HELLO WORLD');
+        txtpara.appendChild(txt);
+
+    };
+
+
+</script>
+</body>
+</html>
