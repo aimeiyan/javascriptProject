@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    /*-----------------------inserAfter函数------------------------------*/
+    function insertAfter(newElement, targetElement) {
+        var parent = targetElement.parentNode;
+        if (parent.lastChild == targetElement) {
+            parent.appendChild(targetElement);
+        } else {
+            parent.insertBefore(newElement, targetElement.nextSibling);
+        }
+    }
+
+    insertAfter(newElement, targetElement);
+
+</script>
+</body>
+</html>

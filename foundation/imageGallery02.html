@@ -8,6 +8,16 @@
             background-color: #ccc;
         }
 
+        .clearfix:before, .clearfix:after {
+            content: "";
+            display: table;
+        }
+
+        .clearfix:after {
+            clear: both;
+            overflow: hidden;
+        }
+
         li {
             float: left;
             padding: 1em;
@@ -20,66 +30,132 @@
             font-weight: bold;
         }
 
-        img {
+        img, p {
             display: block;
             clear: both;
         }
 
-        h1 {
-            clear: both;
-        }
     </style>
 </head>
 <body>
-<!--<div class="points">-->
-    <!--<h1>重要DOM属性</h1>-->
-    <!--<ul>-->
-        <!--<li>childNodes</li>-->
-        <!--<li>nodeType</li>-->
-        <!--<li>nodeValue</li>-->
-        <!--<li>firstChild</li>-->
-        <!--<li>lastChild</li>-->
-    <!--</ul>-->
-<!--</div>-->
 <h1>Snapshots</h1>
-<ul>
+<ul id="imagegallery" class="clearfix">
     <li>
-        <a href="images/images/fireworks.jpg" title="A firework display"
-           onclick="showPic(this);return false;"><img src="images/images/thumbnail_fireworks.jpg" alt="Fireworks"></a>
+        <a href="images/images/fireworks.jpg" title="A firework display"><img
+                src="images/images/thumbnail_fireworks.jpg" alt="Fireworks"></a>
     </li>
     <li>
-        <a href="images/images/coffee.jpg" title="A cup of black coffee"
-           onclick="showPic(this);return false;"><img src="images/images/thumbnail_coffee.jpg" alt="Coffee"></a>
+        <a href="images/images/coffee.jpg" title="A cup of black coffee"><img src="images/images/thumbnail_coffee.jpg"
+                                                                              alt="Coffee"></a>
     </li>
     <li>
-        <a href="images/images/rose.jpg" title="A red,red rose" onclick="showPic(this);return false;"><img
+        <a href="images/images/rose.jpg" title="A red,red rose"><img
                 src="images/images/thumbnail_rose.jpg" alt="Roses"></a>
     </li>
     <li>
-        <a href="images/images/bigben.jpg" title="A famous clock" onclick="showPic(this);return false;"><img
+        <a href="images/images/bigben.jpg" title="A famous clock"><img
                 src="images/images/thumbnail_bigben.jpg" alt="BigBen"></a>
     </li>
 </ul>
-<img src="images/images/placeholder.gif" id="placeholder" alt="my image gallery">
-
-<p id="description">Choose an images</p>
+<!--<img src="images/images/placeholder.gif" id="placeholder" alt="my image gallery">-->
+<!--<p id="description">Choose an images</p>-->
 <script>
+    /*-----------------------inserAfter函数------------------------------*/
+    function insertAfter(newElement, targetElement) {
+        var parent = targetElement.parentNode;
+        if (parent.lastChild == targetElement) {
+            parent.appendChild(targetElement);
+        } else {
+            parent.insertBefore(newElement, targetElement.nextSibling);
+        }
+    }
+
+
+    function preparePlaceholder() {
+
+//        测试浏览器是否支持这些DOM方法
+        if (!document.getElementById) return false;
+        if (!document.createElement) return false;
+        if (!document.createTextNode) return false;
+        if (!document.getElementById('imagegallery')) return false;
+
+
+        var placeholder = document.createElement('img');
+        placeholder.setAttribute('id', 'placeholder');
+        placeholder.setAttribute('src', 'images/images/placeholder.gif');
+        placeholder.setAttribute('alt', 'my images gallery');
+
+
+        var description = document.createElement('p');
+        var desctext = document.createTextNode('choose a image');
+        description.setAttribute('id', 'description');
+        description.appendChild(desctext);
+
+        /*-----------------------利用appendChild方法加入新元素---------------------------*/
+        //    document.getElementsByTagName('body')[0].appendChild(placeholder);      //document.body.appendChild(placeholder);
+        //    document.getElementsByTagName('body')[0].appendChild(description);
+
+
+        /*-----------------------利用insertBefore方法插入新元素---------------------------*/
+        var gallery = document.getElementById('imagegallery');
+        //    gallery.parentNode.insertBefore(placeholder, gallery);
+        //    gallery.parentNode.insertBefore(description, gallery);
+
+
+        insertAfter(placeholder, gallery);
+        insertAfter(description, placeholder);
+
+    }
+
+
+    function prepareGallery() {
+        var gallery = document.getElementById('imagegallery');
+        var links = gallery.getElementsByTagName('a');
+        for (var i = 0; i < links.length; i++) {
+            links[i].onclick = function () {
+                return showPic(this);
+            };
+            links[i].onkeypress = links[i].onclick;
+        }
+
+    }
+
+
+    //    function showPic(whichpic) {
+    //        var source = whichpic.getAttribute('href');
+    //        document.getElementById('placeholder').setAttribute('src', source);
+    //        var description = document.getElementById('description');
+    //        if (whichpic.getAttribute('title')) {
+    //            var text = whichpic.getAttribute('title');
+    //        } else {
+    //            var text = whichpic.getAttribute('');
+    //        }
+    //
+    //        if (description.firstChild.nodeType == 3) {
+    //            description.firstChild.nodeValue = text;
+    //        }
+    //        return false
+    //
+    //    }
     function showPic(whichpic) {
-        var source = whichpic.getAttribute('href');
-        var text = whichpic.getAttribute('title');
-        document.getElementById('placeholder').setAttribute('src', source);
-//        document.getElementById('description').childNodes[0].nodeValue=text;
-        document.getElementById('description').firstChild.nodeValue = text;   //相较于上一句容易阅读和理解
+//        if (!document.getElementById("placeholder")) return true;
+        var source = whichpic.getAttribute("href");
+        var placeholder = document.getElementById("placeholder");
+        placeholder.setAttribute("src", source);
+//        if (!document.getElementById("description")) return false;
+        if (whichpic.getAttribute("title")) {
+            var text = whichpic.getAttribute("title");
+        } else {
+            var text = "";
+        }
+        var description = document.getElementById("description");
+        if (description.firstChild.nodeType == 3) {
+            description.firstChild.nodeValue = text;
+        }
+        return false;
     }
-
-
-    function countBodyChildren() {
-        var body_element = document.getElementsByTagName('body')[0];
-        console.log(body_element.childNodes.length);
-    }
-
-    window.onload = countBodyChildren();
-
+    preparePlaceholder();
+    prepareGallery();
 </script>
 </body>
 </html>
