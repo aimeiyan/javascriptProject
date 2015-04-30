@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../resource/images/tongbaotu.ico">
+
+    <title>南充银行－打印客户风险评估问卷</title>
+
+    <link href="resource/css/nanchong.v2014101314.min.css" rel="stylesheet">
+
+    <!--questionnarePrint special-->
+    <link href="resource/css/questionnarePrint.css" rel="stylesheet">
+    <!--questionnarePrint special end-->
+
+    <script src="resource/3rd/jquery/jquery-1.11.1.min.js"></script>
+
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="resource/3rd/bootstrap3/js/html5shiv.min.js"></script>
+    <script src="resource/3rd/bootstrap3/js/respond.min.js"></script>
+    <link href="resource/css/IE8-modify.css" rel="stylesheet">
+
+    <![endif]-->
+
+</head>
+
+<body>
+<div style="position: absolute;right: 150px;top: 10px"><a onclick="printDiv('printableArea')" id="print-btn"
+                                                          style="text-align: center;cursor: pointer;background-color: #00b3ee;color: #ffffff;line-height: 30px;height: 30px;width: 100px;display: block">打印</a>
+</div>
+<!--content-->
+<div id="printableArea">
+    <div class="container" style="font-size: 14px;">
+        <div id="tbt-reserve-form-box" class="row-fuild">
+
+            <h1 class="text-center" style="margin-top: 10px;font-size: 18px;">客户风险评估问卷</h1>
+
+            <form role="form" id="tbt-questionnaire-form" action="" method="post">
+                <div class="row-fuild">
+                    <div class="form-group">
+                        <div class="">
+                            <p class="tbt-explain">
+                                以下10个问题将根据您的财务状况、投资经验、投资风格、风险偏好和风险承受能力等对您进行风险评估，我们将根据评估结果为您更好的配置资产。请您认真作答，感谢您的配合！（每个问题请选择唯一选项，不可多选）</p>
+                        </div>
+                    </div>
+
+                    <div id="tbt-question-body">
+                        <h4>一、财务状况</h4>
+
+                        <div class="form-group ">
+                            <label class="control-label">1.您的年龄是？</label>
+
+                            <div class="input-group">
+                                <label class="radio"><input id="QuestionnaireForm_q1_0" value="A" type="radio"
+                                                            name="QuestionnaireForm[q1]"><label
+                                        for="QuestionnaireForm_q1_0"><span>A.&nbsp;</span>18-30</label></label>
+                                <label class="radio"><input id="QuestionnaireForm_q1_1" value="B" type="radio"
+                                                            name="QuestionnaireForm[q1]"><label
+                                        for="QuestionnaireForm_q1_1"><span>B.&nbsp;</span>31-50</label></label>
+                                <label class="radio"><input id="QuestionnaireForm_q1_2" value="C" type="radio"
+                                                            name="QuestionnaireForm[q1]"><label
+                                        for="QuestionnaireForm_q1_2"><span>C.&nbsp;</span>51-60</label></label>
+                                <label class="radio"><input id="QuestionnaireForm_q1_3" value="D" type="radio"
+                                                            name="QuestionnaireForm[q1]"><label
+                                        for="QuestionnaireForm_q1_3"><span>D.&nbsp;</span>高于60岁</label></label>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group ">
+                            2. <label class="control-label">您的家庭年收入为（折合人民币）？</label>
+
+                            <div class="input-group">
+                                <label class="radio"><input id="QuestionnaireForm_q2_0" value="A" type="radio"
+                                                            name="QuestionnaireForm[q2]"><label
+                                        for="QuestionnaireForm_q2_0"><span>A.&nbsp;</span>5万元以下</label></label>
+                                <label class="radio"><input id="QuestionnaireForm_q2_1" value="B" type="radio"
+                                                            name="QuestionnaireForm[q2]"><label
+                                        for="QuestionnaireForm_q2_1"><span>B.&nbsp;</span>5-20万元</label></label>
+                                <label class="radio"><input id="QuestionnaireForm_q2_2" value="C" type="radio"
+                                                            name="QuestionnaireForm[q2]"><label
+                                        for="QuestionnaireForm_q2_2"><span>C.&nbsp;</span>20-50万元</label></label>
+                                <label class="radio"><input id="QuestionnaireForm_q2_3" value="D" type="radio"
+                                                            name="QuestionnaireForm[q2]"><label
+                                        for="QuestionnaireForm_q2_3"><span>D.&nbsp;</span>50-100万元</label></label>
+                                <label class="radio"><input id="QuestionnaireForm_q2_4" value="E" type="radio"
+                                                            name="QuestionnaireForm[q2]"><label
+                                        for="QuestionnaireForm_q2_4"><span>E.&nbsp;</span>100万元以上</label></label>
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            3. <label class="control-label required">在您每年的家庭收入中，可用于金融投资（储蓄存款除外）的比例为？</label>
+
+                            <div class="input-group">
+                                <label class="radio"><input id="QuestionnaireForm_q3_0" value="A" type="radio"
+                                                            name="QuestionnaireForm[q3]"><label
+                                        for="QuestionnaireForm_q3_0"><span>A.&nbsp;</span>小于10%</label></label>
+                                <label class="radio"><input id="QuestionnaireForm_q3_1" value="B" type="radio"
+                                                            name="QuestionnaireForm[q3]"><label
+                                        for="QuestionnaireForm_q3_1"><span>B.&nbsp;</span>10%至25%</label></label>
+                                <label class="radio"><input id="QuestionnaireForm_q3_2" value="C" type="radio"
+                                                            name="QuestionnaireForm[q3]"><label
+                                        for="QuestionnaireForm_q3_2"><span>C.&nbsp;</span>25%至50%</label></label>
+                                <label class="radio"><input id="QuestionnaireForm_q3_3" value="D" type="radio"
+                                                            name="QuestionnaireForm[q3]"><label
+                                        for="QuestionnaireForm_q3_3"><span>D.&nbsp;</span>大于50%</label></label>
+                            </div>
+                        </div>
+                        <div class="row item-title tbt-title-list">
+                            <div class="col-md-5 col-sm-5 col-xs-10"><h4>二、投资经验<span class="tbt-questios-tip">（任一项选A客户均视为无投资经验客户）</span>
+                            </h4></div>
+                            <div class="hr col-md-7 col-sm-7 col-xs-2"></div>
+                        </div>
+                        <div class="form-group ">
+                            4. <label class="control-label">以下哪项最能说明您的投资经验？</label>
+
+                            <div class="input-group">
+                                <label class="radio"><input id="QuestionnaireForm_q4_0" value="A" type="radio"
+                                                            name="QuestionnaireForm[q4]"><label
+                                        for="QuestionnaireForm_q4_0"><span>A.&nbsp;</span>除存款、国债外，我几乎不投资其他金融产品</label></label>
+                                <label class="radio"><input id="QuestionnaireForm_q4_1" value="B" type="radio"
+                                                            name="QuestionnaireForm[q4]"><label
+                                        for="QuestionnaireForm_q4_1"><span>B.&nbsp;</span>大部分投资于存款、国债等，较少投资于股票、基金等风险产品</label></label>
+                                <label class="radio"><input id="QuestionnaireForm_q4_2" value="C" type="radio"
+                                                            name="QuestionnaireForm[q4]"><label
+                                        for="QuestionnaireForm_q4_2"><span>C.&nbsp;</span>资产均衡地分布于存款、国债、银行理财产品、信托产品、股票、基金等</label></label>
+                                <label class="radio"><input id="QuestionnaireForm_q4_3" value="D" type="radio"
+                                                            name="QuestionnaireForm[q4]"><label
+                                        for="QuestionnaireForm_q4_3"><span>D.&nbsp;</span>大部分投资于股票、基金、外汇等高风险产品，较少投资于存款、国债</label></label>
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            5. <label class="control-label">您有多少年投资股票、基金、外汇、金融衍生产品等风险投资品的经验？</label>
+
+                            <div class="input-group">
+                                <label class="radio"><input id="QuestionnaireForm_q5_0" value="A" type="radio"
+                                                            name="QuestionnaireForm[q5]"><label
+                                        for="QuestionnaireForm_q5_0"><span>A.&nbsp;</span>没有经验</label></label>
+                                <label class="radio"><input id="QuestionnaireForm_q5_1" value="B" type="radio"
+                                                            name="QuestionnaireForm[q5]"><label
+                                        for="QuestionnaireForm_q5_1"><span>B.&nbsp;</span>少于2年</label></label>
+                                <label class="radio"><input id="QuestionnaireForm_q5_2" value="C" type="radio"
+                                                            name="QuestionnaireForm[q5]"><label
+                                        for="QuestionnaireForm_q5_2"><span>C.&nbsp;</span>2至5年</label></label>
+                                <label class="radio"><input id="QuestionnaireForm_q5_3" value="D" type="radio"
+                                                            name="QuestionnaireForm[q5]"><label
+                                        for="QuestionnaireForm_q5_3"><span>D.&nbsp;</span>5至8年</label></label>
+                                <label class="radio"><input id="QuestionnaireForm_q5_4" value="E" type="radio"
+                                                            name="QuestionnaireForm[q5]"><label
+                                        for="QuestionnaireForm_q5_4"><span>E.&nbsp;</span>8年以上</label></label>
+                            </div>
+                        </div>
+                        <div class="row item-title tbt-title-list">
+                            <div class="col-md-2 col-sm-6 col-xs-4"><h4>三、投资风格</h4></div>
+                            <div class="hr col-md-10 col-sm-6 col-xs-8"></div>
+                        </div>
+
+                        <div class="form-group ">
+                            6. <label class="control-label">以下哪项描述最符合您的投资态度？</label>
+
+                            <div class="input-group">
+                                <label class="radio"><input id="QuestionnaireForm_q6_0" value="A" type="radio"
+                                                            name="QuestionnaireForm[q6]"><label
+                                        for="QuestionnaireForm_q6_0"><span>A.&nbsp;</span>厌恶风险，不希望本金损失，希望获得稳定回报</label></label>
+                                <label class="radio"><input id="QuestionnaireForm_q6_1" value="B" type="radio"
+                                                            name="QuestionnaireForm[q6]"><label
+                                        for="QuestionnaireForm_q6_1"><span>B.&nbsp;</span>保守投资，不希望本金损失，愿意承担一定幅度的收益波动</label></label>
+                                <label class="radio"><input id="QuestionnaireForm_q6_2" value="C" type="radio"
+                                                            name="QuestionnaireForm[q6]"><label
+                                        for="QuestionnaireForm_q6_2"><span>C.&nbsp;</span>寻求资金的较高收益和成长性，愿意为此承担有限本金损失</label></label>
+                                <label class="radio"><input id="QuestionnaireForm_q6_3" value="D" type="radio"
+                                                            name="QuestionnaireForm[q6]"><label
+                                        for="QuestionnaireForm_q6_3"><span>D.&nbsp;</span>希望赚取高回报，愿意为此承担较大本金损失</label></label>
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            7. <label class="control-label">以下情况，您会选择哪一种？</label>
+
+                            <div class="input-group">
+                                <label class="radio"><input id="QuestionnaireForm_q7_0" value="A" type="radio"
+                                                            name="QuestionnaireForm[q7]"><label
+                                        for="QuestionnaireForm_q7_0"><span>A.&nbsp;</span>有100%的机会赢取1000元现金</label></label>
+                                <label class="radio"><input id="QuestionnaireForm_q7_1" value="B" type="radio"
+                                                            name="QuestionnaireForm[q7]"><label
+                                        for="QuestionnaireForm_q7_1"><span>B.&nbsp;</span>有50%的机会赢取5万元现</label></label>
+                                <label class="radio"><input id="QuestionnaireForm_q7_2" value="C" type="radio"
+                                                            name="QuestionnaireForm[q7]"><label
+                                        for="QuestionnaireForm_q7_2"><span>C.&nbsp;</span>有25%的机会赢取50万元现金</label></label>
+                                <label class="radio"><input id="QuestionnaireForm_q7_3" value="D" type="radio"
+                                                            name="QuestionnaireForm[q7]"><label
+                                        for="QuestionnaireForm_q7_3"><span>D.&nbsp;</span>有10%的机会赢取100万元现金</label></label>
+                            </div>
+                        </div>
+
+                        <div class="row item-title tbt-title-list">
+                            <div class="col-md-2 col-sm-6 col-xs-4"><h4>四、投资目的</h4></div>
+                            <div class="hr col-md-10 col-sm-6 col-xs-8"></div>
+                        </div>
+
+                        <div class="form-group ">
+                            8. <label class="control-label">您计划的投资期限是多久？</label>
+
+                            <div class="input-group">
+                                <label class="radio"><input id="QuestionnaireForm_q8_0" value="A" type="radio"
+                                                            name="QuestionnaireForm[q8]"><label
+                                        for="QuestionnaireForm_q8_0"><span>A.&nbsp;</span>1年以下</label></label>
+                                <label class="radio"><input id="QuestionnaireForm_q8_1" value="B" type="radio"
+                                                            name="QuestionnaireForm[q8]"><label
+                                        for="QuestionnaireForm_q8_1"><span>B.&nbsp;</span>1－3年</label></label>
+                                <label class="radio"><input id="QuestionnaireForm_q8_2" value="C" type="radio"
+                                                            name="QuestionnaireForm[q8]"><label
+                                        for="QuestionnaireForm_q8_2"><span>C.&nbsp;</span>3—5年</label></label>
+                                <label class="radio"><input id="QuestionnaireForm_q8_3" value="D" type="radio"
+                                                            name="QuestionnaireForm[q8]"><label
+                                        for="QuestionnaireForm_q8_3"><span>D.&nbsp;</span>5年以上</label></label>
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            9. <label class="control-label">您的投资目的是 ？</label>
+
+                            <div class="input-group">
+                                <label class="radio"><input id="QuestionnaireForm_q9_0" value="A" type="radio"
+                                                            name="QuestionnaireForm[q9]"><label
+                                        for="QuestionnaireForm_q9_0"><span>A.&nbsp;</span>资产保值</label></label>
+                                <label class="radio"><input id="QuestionnaireForm_q9_1" value="B" type="radio"
+                                                            name="QuestionnaireForm[q9]"><label
+                                        for="QuestionnaireForm_q9_1"><span>B.&nbsp;</span>资产稳健增长</label></label>
+                                <label class="radio"><input id="QuestionnaireForm_q9_2" value="C" type="radio"
+                                                            name="QuestionnaireForm[q9]"><label
+                                        for="QuestionnaireForm_q9_2"><span>C.&nbsp;</span>.资产迅速增长</label></label>
+                            </div>
+                        </div>
+
+                        <div class="row item-title tbt-title-list tbt-md-percent-change">
+                            <div class="col-md-3 col-sm-6 col-xs-5"><h4>五、风险承受能力</h4></div>
+                            <div class="hr col-md-9 col-sm-6 col-xs-7"></div>
+                        </div>
+                        <div class="form-group ">
+                            10. <label class="control-label">您的投资出现何种程度的波动时，您会呈现明显的焦虑？</label>
+
+                            <div class="input-group">
+                                <label class="radio"><input id="QuestionnaireForm_q10_0" value="A" type="radio"
+                                                            name="QuestionnaireForm[q10]"><label
+                                        for="QuestionnaireForm_q10_0"><span>A.&nbsp;</span>本金无损失，但收益未达预期</label></label>
+                                <label class="radio"><input id="QuestionnaireForm_q10_1" value="B" type="radio"
+                                                            name="QuestionnaireForm[q10]"><label
+                                        for="QuestionnaireForm_q10_1"><span>B.&nbsp;</span>出现轻微本金损失</label></label>
+                                <label class="radio"><input id="QuestionnaireForm_q10_2" value="C" type="radio"
+                                                            name="QuestionnaireForm[q10]"><label
+                                        for="QuestionnaireForm_q10_2"><span>C.&nbsp;</span>本金10％以内的损失</label></label>
+                                <label class="radio"><input id="QuestionnaireForm_q10_3" value="D" type="radio"
+                                                            name="QuestionnaireForm[q10]"><label
+                                        for="QuestionnaireForm_q10_3"><span>D.&nbsp;</span>金20-50％的损失</label></label>
+                                <label class="radio"><input id="QuestionnaireForm_q10_4" value="E" type="radio"
+                                                            name="QuestionnaireForm[q10]"><label
+                                        for="QuestionnaireForm_q10_4"><span>E.&nbsp;</span>本金50％以上损失</label></label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!--content end-->
+<script>
+    //    $(function(){
+    //        $('#print-btn').click(function(){
+    //            $(this).hide();
+    //            window.print();
+    //            $(this).show();
+    //            return false;
+    //        })
+    function printDiv(divName) {
+        var printContents = document.getElementById(divName).innerHTML;
+        var originalContents = document.body.innerHTML;
+
+        document.body.innerHTML = printContents;
+
+        window.print();
+
+        document.body.innerHTML = originalContents;
+    }
+    //    })
+</script>
+
+</body>
+</html>

@@ -1,0 +1,55 @@
+.navbar > .container .navbar-brand{
+    margin-left: 0 !important;
+}
+
+.appoint-number SPAN{
+    width: 45px;
+    right: 0px;
+}
+
+.carousel-indicators{
+    bottom: -50px !important;
+}
+.nch-login .box{
+    background: none;
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#E5FAF8E9,endColorstr=#E5FAF8E9);
+}
+
+.pad-l-0 a,.pad-r-0 a{
+    color: #625548;
+    text-decoration: underline;
+}
+
+.pad-l-0 .form-group,.pad-r-0 .form-group{
+    margin-bottom: 0 !important;
+}
+.pagination li a.last{
+    background: none;
+    color: #e1e1e1;
+}
+.pagination li a.last:hover{
+    background: none;
+    color: #777777;
+}
+
+.main-row-03 .list-group{
+    padding-bottom: 1px;
+}
+
+.carousel-indicators LI{
+    border: none;
+    width: 22px;
+    height: 22px;
+    margin: 0 2px;
+    background: url("../images/slider-controls.png") no-repeat -24px 0px;
+}
+.carousel-indicators LI.active{
+    width: 22px;
+    height: 22px;
+    background: url("../images/slider-controls.png") no-repeat 1px 0px;
+
+}
+
+.captionList li a{
+    color: #585858;
+}
