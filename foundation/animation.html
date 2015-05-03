@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<p id="message">Wheel!</p>
+<script>
+
+    function addLoad(func) {
+        var oldLoad = window.onload;
+        if (typeof oldLoad != 'function') {
+            window.onload = func;
+        } else {
+            window.onload = function () {
+                oldLoad();
+                func();
+            }
+        }
+    }
+
+    function positionMessage() {
+        var elem = document.getElementById('message');
+        elem.style.position = 'absolute';
+        elem.style.left = '50px';
+        elem.style.top = '100px';
+//        move = setTimeout("moveMessage()", 1000);
+        moveElement('message', 100, 800, 10);
+    }
+
+    //    function moveMessage() {
+    //        var elem = document.getElementById('message');
+    //        var xpos = parseInt(elem.style.left);
+    //        var ypos = parseInt(elem.style.top);
+    //        if (xpos === 400 && ypos === 400) {
+    //            return true
+    //        }
+    //        if (xpos < 400) {
+    //            xpos++;
+    //        }
+    //        if (ypos < 400) {
+    //            ypos++;
+    //        }
+    //        if (xpos > 400) {
+    //            xpos--;
+    //        }
+    //        if (ypos > 400) {
+    //            ypos--;
+    //        }
+    //        elem.style.left = xpos + 'px';
+    //        elem.style.top = ypos + 'px';
+    //        movement = setTimeout('moveMessage()', 10);
+    //
+    //    }
+
+    //    将上面的函数moveMessage()抽象化
+
+    function moveElement(elementID, final_x, final_y, interval) {
+        var elem = document.getElementById(elementID);
+        console.log(elem);
+        var xpos = parseInt(elem.style.left);
+        var ypos = parseInt(elem.style.top);
+        if (xpos === final_x && ypos === final_y) {
+            return true
+        }
+        if (xpos > final_x) {
+            xpos--;
+        }
+        if (ypos > final_y) {
+            ypos--;
+        }
+        if (xpos < final_x) {
+            xpos++;
+        }
+        if (ypos < final_y) {
+            ypos++;
+        }
+        elem.style.left = xpos + 'px';
+        elem.style.top = ypos + 'px';
+        var repeat = 'moveElement("' + elementID + '",' + final_x + ',' + final_y + ',' + interval + ')';
+        movement = setTimeout(repeat, interval);
+    }
+
+
+    addLoad(positionMessage);
+    //    addLoad(moveMessage);
+
+    //    window.onload = function() {
+    //        console.log("load complete")
+    //    };
+
+    //    addLoad(function() {
+    //        console.log("onload 1");
+    //    });
+    //
+    //    addLoad(function() {
+    //        console.log("onload 2");
+    //    });
+    //
+    //    addLoad(function() {
+    ////        debugger
+    //        console.log("onload 3");
+    //    });
+
+
+    //    window.onload = function() {
+    //        if(typeof oldonload == 'function') {
+    //            oldonload();
+    //        }
+    //        console.log("load complete 2")
+    //    };
+
+    //
+    //    function add_onload(func) {
+    //        var oldonload = window.onload;
+    //
+    //    }
+    //
+    //
+    //
+    //    function add(a, b) {
+    //        return a + b;
+    //    }
+    //
+    //    function bind(f, a) {
+    //        return function(b) {
+    //            return f(a, b);
+    //        }
+    //    }
+    //
+    //    var r = add(3, 1);
+    //    var after_bind = bind(add, 3);
+    //    after_bind(1);
+
+
+    //    window.onload = function() {
+    //
+    //    }
+
+
+</script>
+</body>
+</html>
