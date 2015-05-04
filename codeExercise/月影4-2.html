@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            max-width: 1024px;
+            margin: 0 auto;
+        }
+
+        .section-01 {
+            padding: 20px;
+        }
+
+        input:checked + span {
+            color: #ff0000;
+        }
+    </style>
+</head>
+<body>
+<div class="section-01">
+    <h1>js DOM 方法</h1>
+    <ul>
+        <li>getElementById - 得到特定id的某个元素</li>
+        <li>getElementByTagName - 得到特定tagName的所有元素</li>
+        <li>querySelector,querySelectorAll - 选择器</li>
+        <li>appendChild - 将DOM节点插入末尾</li>
+        <li>removeChild - 将DOM节点移除</li>
+        <li>insertAdjacentHTML - 将DOM节点插入指定位置</li>
+        <li>setAttribute、getAttribute － 设置属性</li>
+        <li>element.style - 设置样式</li>
+        <li>childNode</li>
+    </ul>
+</div>
+<hr>
+<div class="section-02">
+    <button id="insert">插入</button>
+    <button id="delete">删除</button>
+    <button id="edit">修改文字</button>
+    <input type="text" id="text" value="我是第一行">
+    <ul class="lists">
+        <li><input type="checkbox"><span>我是第一行</span></li>
+        <li><input type="checkbox"><span>我是第一行</span></li>
+        <li><input type="checkbox"><span>我是第一行</span></li>
+        <li><input type="checkbox"><span>我是第一行</span></li>
+        <li><input type="checkbox"><span>我是第一行</span></li>
+        <li><input type="checkbox"><span>我是第一行</span></li>
+        <li><input type="checkbox"><span>我是第一行</span></li>
+        <li><input type="checkbox"><span>我是第一行</span></li>
+    </ul>
+</div>
+<script>
+    var insetBtn = document.getElementById('insert');
+    var deleteBtn = document.getElementById('delete');
+    var editBtn = document.getElementById('edit');
+    var text = document.getElementById('text');
+
+    var list = document.querySelectorAll('.lists')[0];
+
+    function getAllChecked() {
+        return document.querySelectorAll('input:checked');
+    }
+
+    /**
+     * 插入行
+     */
+    function insertRow() {
+        var checked = getAllChecked();
+        if (checked.length <= 0) {
+            var li = document.createElement('li');
+            li.innerHTML = '<li><input type="checkbox"><span>' + text.value + '</span></li>';
+            list.appendChild(li);
+        } else {
+            for (var i = 0; i < checked.length; i++) {
+                checked[i].parentNode.insertAdjacentHTML('beforeBegin', '<li><input type="checkbox"><span>' + text.value + '</span></li>')
+            }
+        }
+    }
+
+    /**
+     * 删除行
+     */
+    function deleteRow() {
+        var checked = getAllChecked();
+        for (var i = 0; i < checked.length; i++) {
+            console.log(list, checked[i], checked[i].parentNode);
+            list.removeChild(checked[i].parentNode);
+
+        }
+    }
+
+    function editRow() {
+        var checked = getAllChecked();
+        for (var i = 0; i < checked.length; i++) {
+            checked[i].parentNode.innerHTML = '<input type="checkbox"><span>' + text.value + '</span>';
+        }
+    }
+
+    deleteBtn.addEventListener('click', deleteRow);
+    insetBtn.addEventListener('click', insertRow);
+    editBtn.addEventListener('click', editRow);
+</script>
+</body>
+</html>

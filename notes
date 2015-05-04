@@ -23,3 +23,29 @@ http://quirksmode.org/
 
 7、http://fis.baidu.com/index.html
 FIS是专为解决前端开发中自动化工具、性能优化、模块化框架、开发规范、代码部署、开发流程等问题的工具框架。
+
+8、制作蒙板，漂浮于内容上面，区域等于其父亲的区域
+
+.mask {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            top: 0;
+            right: 0;
+            background: rgba(0,0,0,0.6);
+            color:#ff6600;
+        }
+
+
+    等效于
+
+
+.mask {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: rgba(0,0,0,0.6);
+            color:#ff6600;
+        }
