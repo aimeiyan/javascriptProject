@@ -36,6 +36,7 @@
         <li>setAttribute、getAttribute － 设置属性</li>
         <li>element.style - 设置样式</li>
         <li>childNode</li>
+        <li>tagName</li>
     </ul>
 </div>
 <hr>
@@ -91,7 +92,6 @@
         for (var i = 0; i < checked.length; i++) {
             console.log(list, checked[i], checked[i].parentNode);
             list.removeChild(checked[i].parentNode);
-
         }
     }
 
@@ -105,6 +105,19 @@
     deleteBtn.addEventListener('click', deleteRow);
     insetBtn.addEventListener('click', insertRow);
     editBtn.addEventListener('click', editRow);
+
+
+    //监听触发事件的tag
+    list.addEventListener('click', function (evt) {
+        var target = evt.target;
+        if (target.tagName.toLowerCase() === 'span') {
+            alert(target.innerHTML);
+        }
+    })
+
+
+
+
 </script>
 </body>
 </html>

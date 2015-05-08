@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>动画效果</title>
+    <style>
+
+        #cube {
+            width: 20px;
+            height: 20px;
+            background-color: green;
+            position: absolute;
+            left: 100px;
+            top: 100px;
+        }
+
+        .test {
+            background-color: #ff0000;
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            top: 400px;
+            left: 400px;
+        }
+    </style>
+</head>
+<body>
+
+<!--将一个20px*20px的绿色滑块从 (100,100)位置匀速运动到(100,300)位置，耗费事件2s-->
+
+<div id="cube">&nbsp;</div>
+<div class="test"></div>
+<div><input type="button" value="start" id="btn"></div>
+<script>
+
+    window.onload = function () {
+        var cube = document.getElementById('cube'),
+                btn = document.getElementById('btn');
+
+        btn.addEventListener('click', function (e) {
+
+            // cube run
+            var speed = (300 - 100) / (2000 / 20);
+            var startTime = 0;
+            var during = 20;
+            var left = parseInt(cube.style.left, 10);
+            var timer = setInterval(function () {
+                left += speed;
+                if (left >= 300) {
+                    left = 300;
+                }
+                cube.style.left = left + 'px';
+                startTime += during;
+
+                if (startTime > 2000) {
+                    clearInterval(timer);
+                }
+            }, during);
+        }, false);
+
+
+    }
+
+</script>
+
+</body>
+</html>
