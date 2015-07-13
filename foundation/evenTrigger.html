@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<input type="button" value="click me" onclick="alert('clicked')">
+<input type="button" value="click me" onclick="alert(event.type)">
+<input type="button" value="click me" onclick="alert(this.value)">
+<input type="button" value="click me" onclick="showMessage()">
+
+<form>
+    <input type="text" name="username" value="">
+    <input type="button" value="Echo Username" onclick="alert(username.value)">
+</form>
+<br>
+<input type="button" value="myBtn" id="myBtn">
+
+<script type="text/javascript">
+    function showMessage() {
+        alert("hello world");
+    }
+
+    var btn = document.getElementById("myBtn");
+    //        btn.onclick = function () {
+    //            alert(this.id);
+    //        };
+
+    //    删除事件处理程序
+    //    btn.onclick = null;
+
+    //    btn.addEventListener("click", function () {
+    //        alert(this.id);
+    //    }, false);
+    //
+    //    btn.addEventListener("click", function () {
+    //        alert("hello world");
+    //    }, false);
+
+    //    移除事件处理程序
+
+    //    attachEvent() 只适用于IE
+    //        btn.attachEvent("onclick", function () {
+    //            alert("attachEvent");
+    //        });
+
+
+    //    跨浏览器的事件处理程序
+    var EventUtil = {
+        addHandler: function (element, type, handler) {
+            if (element.addEventListener) {
+                element.addEventListener(type, handler, false);
+            } else if (element.attachEvent) {
+                element.attachEvent("on" + type, handler);
+            } else {
+                element["on" + type] = handler;
+            }
+        },
+        removeHandler: function (element, type, handler) {
+            if (element.removeEventListener) {
+                element.removeEventListener(type, handler, false);
+            } else if (element.detachEvent) {
+                element.detachEvent("on" + type, handler);
+            } else {
+                element["on" + type] = null;
+            }
+        }
+    };
+
+    var handler = function () {
+        alert('clicked hello');
+    };
+
+    EventUtil.addHandler(btn, "click", handler);
+
+
+</script>
+</body>
+</html>

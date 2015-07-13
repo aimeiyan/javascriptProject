@@ -1,0 +1,32 @@
+problem问题：
+1、相关的ajax技术
+http://api.jquery.com/
+http://api.jquery.com/ajaxComplete/#ajaxComplete-handler
+
+$( document ).ajaxComplete(function() {
+  $( ".log" ).text( "Triggered ajaxComplete handler." );
+});
+
+$( document ).ajaxComplete(function( event, xhr, settings ) {
+  if ( settings.url === "ajax/test.html" ) {
+    $( ".log" ).text( "Triggered ajaxComplete handler. The result is " +
+      xhr.responseText );
+  }
+});
+
+
+$( document ).ajaxComplete(function( event,request, settings ) {
+  $( "#msg" ).append( "<li>Request Complete.</li>" );
+});
+
+
+2、http://api.jquery.com/animate/#animate-properties-duration-easing-complete
+animation api  step function
+
+3、append
+
+var $newdiv1 = $( "<div id='object1'/>" ),
+  newdiv2 = document.createElement( "div" ),
+  existingdiv1 = document.getElementById( "foo" );
+
+$( "body" ).append( $newdiv1, [ newdiv2, existingdiv1 ] );

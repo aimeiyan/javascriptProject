@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div class="wrapper-01">
+    <div class="trigger">Trigger</div>
+    <div class="result"></div>
+    <div class="log"></div>
+</div>
+<script src="js/jquery-1.11.3.min.js"></script>
+<script>
+
+    $(function () {
+        $(document).ajaxComplete(function () {
+            $(".log").text("Triggered ajaxComplete handler.");
+        });
+
+//        $(".trigger").click(function () {
+//            $(".result").load("ajax/test.html");
+//        })
+
+
+//        $( document ).ajaxComplete(function( event, xhr, settings ) {
+//            if ( settings.url === "ajax/test.html" ) {
+//                $( ".log" ).text( "Triggered ajaxComplete handler. The result is " +
+//                xhr.responseText );
+//            }
+//        });
+
+//        $( document ).ajaxComplete(function( event,request, settings ) {
+//            $( "#msg" ).append( "<li>Request Complete.</li>" );
+//        });
+    });
+
+</script>
+</body>
+</html>

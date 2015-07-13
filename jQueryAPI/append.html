@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script src="js/jquery-1.11.3.min.js"></script>
+<script>
+    var $newdiv1 = $( "<div id='object1'/>" ),
+            newdiv2 = document.createElement( "div" ),
+            existingdiv1 = document.getElementById( "foo" );
+
+    $( "body" ).append( $newdiv1, newdiv2, existingdiv1 );
+
+</script>
+</body>
+</html>

@@ -11,3 +11,10 @@ setTimeout(function factorial(n) {
 
 4、getElementsByClassName() 兼容IE9+；
 兼容老浏览器的方法：
+
+
+5、下面代码竟然能输出“alert(username.value)”：
+<form>
+    <input type="text" name="username" value="">
+    <input type="button" value="Echo Username" onclick="alert(username.value)">
+</form>

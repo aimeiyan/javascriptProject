@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script type="text/javascript">
+
+    /*JSON中对象的属性名任何时候都必须加双引号*/
+    var person = {
+        "name": "Mike",
+        "age": 20,
+        "school": {
+            "name": "college",
+            "location": "North"
+        }
+    };
+
+    var book = [
+        {
+            "title": "Professional Javascript",
+            "authors": [
+                "Nicholas"
+            ],
+            "edition": 3,
+            "year": 2011
+        },
+        {
+            "title": "Professional Javascript",
+            "author": [
+                "Nicholas",
+                "Jeremy",
+                "Joe"
+            ],
+            "edition": 2,
+            "year": 2009,
+            releaseDate:new Date(2011,11,1)
+        }
+    ];
+
+    var jsonTextFunc = JSON.stringify(book, function (key, value) {
+        switch (key) {
+            case "authors":
+                return value.join(",");
+            case "year":
+                return 2000;
+            case "edition":
+                return undefined;
+            default :
+                return value;
+        }
+    });
+
+    var jsonText = JSON.stringify(book);
+    var jsonTextFilter = JSON.stringify(book, ["title", "edition"]);
+    var bookCopy = JSON.parse(jsonText);
+
+    console.log(eval(person));
+    console.log(eval(book), book[1].title);
+    console.log(jsonText,'-----');
+    console.log(jsonTextFilter);
+    console.log(jsonTextFunc,'++++');
+    console.log(bookCopy);
+
+
+
+</script>
+</body>
+</html>

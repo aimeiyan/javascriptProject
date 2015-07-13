@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        /*清除浮动*/
+        .clearfix:before,
+        .clearfix:after {
+            content: "";
+            display: table;
+        }
+
+        .clearfix:after {
+            clear: both;
+        }
+
+        .clearfix {
+            zoom: 1; /* For IE 6/7 (trigger hasLayout) */
+        }
+
+        html {
+            background-color: #000;
+            color: #fff;
+        }
+
+        .action a {
+            background-color: blue;
+            color: #fff;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        .part-01 {
+            background-color: #00b3ee;
+            height: 200px;
+            position: relative;
+        }
+
+        .part-02 {
+            background-color: burlywood;
+            height: 200px;
+        }
+
+        .part-03 {
+            background-color: #bca4de;
+            height: 200px;
+        }
+
+        .part-01 .logo {
+            position: absolute;
+            left: 50px;
+            top: 70px;
+        }
+
+        #block {
+            background-color: royalblue;
+            width: 100px;
+            border: 1px solid brown;
+        }
+
+        .part-03 .block {
+            background-color: red;
+            width: 100px;
+            height: 100px;
+            left: 50px;
+            position: absolute;
+        }
+
+        .part-04 div {
+            position: relative;
+            background-color: #abc;
+            width: 40px;
+            height: 40px;
+            float: left;
+            margin: 5px;
+        }
+
+        .part-05 div {
+            width: 100px;
+            height: 100px;
+            background-color: #ffff00;
+            border: 1px solid #aaaaaa;
+            float: left;
+            margin: 0 10px;
+        }
+
+        .part-05 div.colored {
+            background: green;
+        }
+    </style>
+</head>
+<body>
+<div class="part-01">
+    <div class="action">
+        <a>clickMe</a>
+    </div>
+    <img src="images/logo.svg" alt="logo" width="172" height="72" class="logo">
+</div>
+<div class="part-02">
+    <button class="clickme">&raquo;Run</button>
+    <div id="block">Hello!</div>
+</div>
+<div class="part-03">
+    <button class="left-btn">&laquo;</button>
+    <button class="right-btn">&raquo;</button>
+    <div class="block"></div>
+</div>
+<div class="part-04 clearfix">
+    <p>
+        <button id="go">Run »</button>
+    </p>
+    <div class="block"></div>
+    <div class="block"></div>
+    <div class="block"></div>
+    <div class="block"></div>
+    <div class="block"></div>
+    <div class="block"></div>
+
+</div>
+<div class="part-05 clearfix">
+    <p>
+        <button>&raquo;Run</button>
+    </p>
+    <div></div>
+    <div class="move"></div>
+    <div></div>
+    <div></div>
+</div>
+<script src="js/jquery-1.11.3.min.js"></script>
+<script>
+    //    .animated api
+    $(function () {
+        $(".part-01 .action").click(function () {
+//            $(".part-01 .logo").animate({
+//                opacity:1,
+//                left:"+=100",
+//                height:"toggle"
+//            },5000,function(){
+//            // Animation complete
+//            })
+
+//            $(".part-01 .logo").animate({
+//                width:["toggle","swing"],
+//                height:["toggle","swing"],
+//                opacity:"toggle"
+//            },1000,"linear",function(){
+//                $(this).after("<div>Animation complete.</div>")
+//            })
+            $(".part-01 .logo").animate({
+                width: "toggle",
+                height: "toggle"
+            }, {
+                duration: 5000,
+                specialEasing: {
+                    width: "linear",
+                    height: "linear"
+                },
+                complete: function () {
+                    $(this).after("<div>Animation complete.</div>");
+                }
+            });
+
+        });
+
+        $(".part-02 .clickme").click(function () {
+            $("#block").animate(
+                    {
+                        width: "70%",
+                        borderWidth: "10px",
+                        fontSize: "3em",
+                        marginLeft: "0.6in",
+                        opacity: "0.4"
+                    }
+                    , 5000, function () {
+                        // Animation complete
+                    })
+        });
+
+        $(".part-03 .left-btn").click(function () {
+            $(".part-03 .block").animate({
+                "left": "-=50px"
+            }, "slow");
+        });
+
+        $(".part-03 .right-btn").click(function () {
+            $(".part-03 .block").animate({
+                "left": "+=50px"
+            }, "slow");
+        });
+
+
+        $("#go").click(function () {
+            $(".part-04 .block:first").animate({
+                left: 100
+            }, {
+                duration: 100,
+                step: function (now, fx) {
+                    $(".part-04 .block:gt(0)").css("left", now);
+                }
+            });
+        });
+
+    });
+
+
+    //    :animated Selector
+    //    $(".part-05 .move")
+
+    $(".part-05 button").click(function () {
+       $(".part-05 div:animated").toggleClass("colored");
+    });
+
+    function animatedIt() {
+        $(".part-05 .move").slideToggle("slow", animatedIt);
+    }
+    animatedIt();
+
+</script>
+</body>
+</html>
