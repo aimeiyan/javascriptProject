@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<form method="" action="" style="width: 100%">
+    <input type="text" size="10" maxlength="15" value="initial value" class="inputBox" id="inputBox">
+    <br>
+    <br>
+    <textarea rows="10" cols="100" class="textBox" id="textBox">initial value</textarea>
+    <br>
+    <br>
+
+    <p>单项选择框</p>
+    <select name="location" id="sellLocation">
+        <option value="Sunnyvalue,CA">Sunnyvale</option>
+        <option value="Los Angeles,CA">Los Angeles</option>
+        <option value="Mountain View,CA">Mountain View</option>
+        <option value="">China</option>
+        <option>Australia</option>
+    </select>
+    <br>
+
+    <p>多项选择框</p>
+    <select name="multipleSelect" id="multipleSelect" multiple size="3">
+        <option value="Sunnyvalue,CA">Sunnyvale</option>
+        <option value="Los Angeles,CA">Los Angeles</option>
+        <option value="Mountain View,CA">Mountain View</option>
+        <option value="">China</option>
+        <option>Australia</option>
+    </select>
+</form>
+
+<script type="text/javascript">
+    var selectBox = document.getElementById("sellLocation");
+    var value = selectBox.options[0].value;
+    var text = selectBox.options[0].text;
+    var selectedIndex = selectBox.selectedIndex;
+    var selectedOption = selectBox.options[selectedIndex];
+    console.log(value, "\n", text);
+    console.log("Slected index:" + selectedIndex + "\nSelected Text:" + selectedOption.text + "\nSelected Value:" + selectedOption.value);
+
+
+    function getSelectedOptions(mulSelectBox) {
+        var result = new Array();
+        var option = null;
+        for (var i = 0; i < mulSelectBox.options.length; i++) {
+            var option = mulSelectBox.options[i];
+            if (option.selected) {
+                result.push(option);
+            }
+        }
+        return result
+    }
+
+    var multipleBox = document.getElementById("multipleSelect");
+
+
+    multipleBox.addEventListener("change", function () {
+        var selectedOptionsArray = getSelectedOptions(multipleBox);
+        var message = "";
+
+        for (var j = 0, len = selectedOptionsArray.length; j < len; j++) {
+            message += "\nSelected index:" + selectedOptionsArray[j].index + "\nSelected text:" + selectedOptionsArray[j].text + "\nSelected value" + selectedOptionsArray[j].value;
+        }
+
+        console.log(message);
+    })
+
+</script>
+</body>
+</html>

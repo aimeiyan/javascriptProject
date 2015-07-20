@@ -510,11 +510,11 @@
             // Retrieve missing options from the input field and the
             // associated form, if available:
             if (!options.form || !options.form.length) {
-                options.form = $(options.fileInput.prop('form'));
+                options.form = $(options.fileInput.prop('formSubmit'));
                 // If the given file input doesn't have an associated form,
                 // use the default widget file input's form:
                 if (!options.form.length) {
-                    options.form = $(this.options.fileInput.prop('form'));
+                    options.form = $(this.options.fileInput.prop('formSubmit'));
                 }
             }
             options.paramName = this._getParamName(options);

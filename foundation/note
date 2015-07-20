@@ -18,3 +18,22 @@ setTimeout(function factorial(n) {
     <input type="text" name="username" value="">
     <input type="button" value="Echo Username" onclick="alert(username.value)">
 </form>
+
+
+6、http://www.wrox.com/WileyCDA/WroxTitle/Professional-JavaScript-for-Web-Developers-3rd-Edition.productCd-1118026691,descCd-DOWNLOAD.html
+下载js高级程序设计code页面
+
+7、
+    addHandler: function(element, type, handler){
+        if (element.addEventListener){
+            element.addEventListener(type, handler, false);
+        } else if (element.attachEvent){
+            element.attachEvent("on" + type, handler);
+        } else {
+            element["on" + type] = handler;
+        }
+    },
+
+    问题，为什么？：
+        element["on" + type] = handler;
+

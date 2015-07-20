@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="EventUtil.js" type="application/javascript"></script>
+</head>
+<body>
+<p style="font-weight: bold;font-size: 18px;">表单的基础知识</p>
+
+<p>避免重复提交表单：</p>
+<p>1、在第一次提交表单后就禁用提交按钮</p>
+<p>2、利用onsubmit事件处理程序取消后续的表单提交操作。</p>
+<p></p>
+<br>
+<br>
+
+<p>提交表单：</p>
+
+<p>form表单通常由type="submit"的按钮触发，从点击到提交表单，要经历下面两个方法：</p>
+
+<p>onsubmit();</p>
+
+<p>submit();</p>
+
+<form method="" action="" id="myForm">
+    <hr>
+    <p>图像按钮提交表单</p>
+    <input type="image" src="images/prototype001.jpg" style="width: 100px"><br>
+    <hr>
+    <p>通用提交按钮</p>
+    <input type="submit" value="Submit Form"><br>
+    <hr>
+    <p>自定义提交按钮</p>
+    <button type="submit">Submit Form</button>
+    <br>
+    <input type="text" autofocus="">
+    <br>
+    <br>
+    <hr>
+</form>
+<form method="" action="" id="myForm2">
+    <input type="text" value="默认值" name="example" tabindex="1" readonly>
+    <br>
+    <br>
+    <input type="text" value="默认值" name="default" tabindex="2">
+    <br>
+    <br>
+    <input type="text" value="" name="example">
+    <br>
+    <br>
+    <input type="reset" value="Reset" name="example">
+</form>
+
+
+<script type="text/javascript">
+    var forms = document.forms;
+    //    var form_01 = document.forms[0];
+    //    var form_02 = document.forms[1];
+    //    var form_03 = document.forms[2];
+
+    //    console.log(forms, form_01, form_02);
+
+    var form = document.getElementById("myForm");
+    EventUtil.addHandler(formSubmit, "submit", function (event) {
+        //取得事件对象
+        event = EventUtil.getEvent(event);
+
+        //阻止默认事件
+//        EventUtil.preventDefault(event);
+    });
+
+    var resetForm = document.getElementById("myForm2");
+
+    //    form.submit();
+
+    formSubmit.onsubmit = function () {
+        alert(1);
+    };
+
+    resetForm.reset();
+
+
+    console.log(resetForm.elements);
+    console.log(resetForm.elements[0]);
+    console.log(resetForm.elements["default"]);
+    console.log(resetForm.elements[3]);
+
+    var form3 = document.getElementById("myForm2");
+    console.log(form3.elements["example"], form3.elements["example"].length, form3.elements["example"][0], "all elems");
+
+</script>
+</body>
+</html>

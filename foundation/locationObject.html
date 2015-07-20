@@ -5,6 +5,56 @@
     <title></title>
 </head>
 <body>
+<p>location object</p>
 
+<p>example url:开启http server，打开此页面后，将该页面的url改写成下面的url地址，然后运行页面内的js程序。</p>
+
+<p>http://tiezhang.local.com/index.php?r=liquida/index&q=100#t_1</p>
+<script type="text/javascript">
+
+    var url_01 = "http://www.w3school.com.cn/My first/";
+    document.write(encodeURI(url_01) + "<br>");
+    document.write(encodeURIComponent(url_01) + "<br>");
+    document.write(decodeURI(url_01) + "<br>");
+    document.write(decodeURIComponent(url_01) + "<br>");
+
+    function getQueryStringArgs() {
+//        var qs = location.search.length > 0 ? location.search.substring(1) : "";
+        var qs = "r=liquida/index&q=100& =300";
+        var args = {};
+        var items = qs.length ? qs.split("&") : "";
+        console.log(qs, args, items);
+        var item = null, name = null, value = null;
+        for (var i = 0; i < items.length; i++) {
+            item = items[i].split("=");
+            console.log(item);
+            name = decodeURIComponent(item[0]);
+            value = decodeURIComponent(item[1]);
+            if (name.length) {
+                args[name] = value;
+            }
+        }
+
+        return args
+    }
+
+    //    getQueryStringArgs();
+    console.log(getQueryStringArgs());
+
+    setTimeout(function () {
+
+        window.location = "http://www.baidu.com";   //用location.href（）方法之后，用户可以运用回退按钮回到前一个页面
+        location.assign("http://www.baidu.com");    //用location.href（）方法之后，用户可以运用回退按钮回到前一个页面
+        location.href = "http://www.baidu.com";   //用location.href（）方法之后，用户可以运用回退按钮回到前一个页面
+
+//        上面的页面跳转方法中，location.href的方法最常用。
+
+
+//        location.replace("http://www.baidu.com");//用location.place（）方法之后，用户不能回到前一个页面
+//        location.reload(); //重新加载（有可能从缓存中加载）
+//        location.reload(true);//重新加载（从服务器重新加载）
+    }, 1000)
+
+</script>
 </body>
-</html>lo
+</html>

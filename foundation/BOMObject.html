@@ -1,0 +1,58 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN"
+        "http://www.w3.org/TR/html4/frameset.dtd">
+<html>
+<head>
+    <title>Frameset Example</title>
+</head>
+<frameset rows="50%,50%">
+    <frame src="blue.htm">
+    <frameset cols="50%,50%">
+        <frame src="red.htm" name="redFrame">
+        <frame src="blue.htm" name="blueFrame">
+    </frameset>
+</frameset>
+<script type="text/javascript">
+
+    /*
+     由于window对象为Global对象的角色，因此所有的全局作用域中声明的变量、函数都会变成window对象的属性和方法'
+     */
+
+    //    var age = 29;
+    //    function sayAge() {
+    //        alert(this.age);
+    //    }
+    //
+    //    alert(window.age);
+    //    sayAge();
+    //    window.sayAge();
+
+    /*
+     窗口位置
+     */
+    var leftPos = (typeof window.screenLeft == "number") ? window.screenLeft : window.screenX;
+    var topPos = (typeof window.screenTop == "number") ? window.screenTop : window.screenY;
+
+
+    /*
+     窗口大小
+     */
+
+    var pageWidth = window.innerWidth;
+    var pageHight = window.innerHeight;
+
+    if (typeof pageWidth != "number") {
+        if (document.compatMode == "CSS1Compat") {
+            pageWidth = document.documentElement.clientWidth;
+            pageHight = document.documentElement.clientHeight;
+        } else {
+            pageWidth = document.body.clientWidth;
+            pageHight = document.body.clientHeight;
+        }
+    }
+
+
+
+
+
+</script>
+</html>
